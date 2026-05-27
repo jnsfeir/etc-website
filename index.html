@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ETC — Expertise Training Center Lebanon</title>
+<meta name="description" content="Lebanon's premier training center for BIM, Revit, AutoCAD, AI, Coding, Design, and Photography. Autodesk & Rhino Authorized. Est. 2005.">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+/* ── HOME HERO ── */
+#hero {
+  min-height: 100vh;
+  background: var(--navy);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Grid line texture */
+#hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(26,101,214,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,101,214,0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+/* Blue glow orb */
+#hero::after {
+  content: '';
+  position: absolute; top: -200px; right: 30%;
+  width: 600px; height: 600px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(26,101,214,0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-left {
+  padding: 110px 3rem 80px 6vw;
+  position: relative; z-index: 2;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(26,101,214,0.12); border: 1px solid rgba(52,128,240,0.3);
+  color: var(--blue3); font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 0.38rem 1rem; border-radius: 100px;
+  margin-bottom: 2rem;
+  animation: fadeUp 0.9s ease both;
+}
+.hero-badge .dot { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 8px #22c55e; }
+
+.hero-h1 {
+  font-size: clamp(2.8rem, 5.5vw, 5rem);
+  font-weight: 900; color: var(--white);
+  line-height: 1.02; letter-spacing: -0.035em;
+  animation: fadeUp 0.9s 0.08s ease both;
+}
+.hero-h1 .accent { color: var(--blue2); }
+.hero-h1 .italic-word { font-family: 'Fraunces', serif; font-weight: 700; font-style: italic; color: var(--blue3); }
+
+.hero-cycle-wrap {
+  display: flex; align-items: center; gap: 12px;
+  margin: 1.4rem 0 0.5rem;
+  animation: fadeUp 0.9s 0.16s ease both;
+}
+.hero-cycle-label { font-size: 0.8rem; font-weight: 500; color: var(--muted); }
+.hero-cycle {
+  font-size: clamp(1.1rem, 2vw, 1.35rem); font-weight: 700;
+  color: var(--gold2); min-width: 260px;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.hero-cycle.fade { opacity: 0; transform: translateY(6px); }
+
+.hero-p {
+  font-size: 0.97rem; color: #5a7a98; line-height: 1.8;
+  max-width: 480px; margin-bottom: 2.5rem;
+  animation: fadeUp 0.9s 0.22s ease both;
+}
+
+.hero-btns {
+  display: flex; gap: 0.9rem; flex-wrap: wrap;
+  animation: fadeUp 0.9s 0.3s ease both;
+}
+
+.hero-micro {
+  display: flex; align-items: center; gap: 2rem;
+  margin-top: 3rem; padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  animation: fadeUp 0.9s 0.36s ease both;
+}
+.hero-micro-item { text-align: center; }
+.hero-micro-num { font-size: 1.5rem; font-weight: 800; color: var(--white); line-height: 1; }
+.hero-micro-lbl { font-size: 0.7rem; color: var(--muted); margin-top: 3px; }
+
+/* ── HERO RIGHT ── */
+.hero-right {
+  position: relative; height: 100vh;
+  animation: fadeIn 1.2s 0.2s ease both;
+}
+.hero-img-main {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center 30%;
+  display: block;
+}
+.hero-img-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, var(--navy) 0%, rgba(6,16,30,0.4) 40%, rgba(6,16,30,0.15) 100%);
+}
+
+/* floating cards */
+.hero-card {
+  position: absolute; z-index: 10;
+  background: rgba(11,26,48,0.92); backdrop-filter: blur(12px);
+  border: 1px solid rgba(52,128,240,0.25);
+  border-radius: var(--r); padding: 1rem 1.3rem;
+}
+.hc-1 { top: 20%; right: 5%; animation: float1 4s ease-in-out infinite; }
+.hc-2 { bottom: 22%; right: 8%; animation: float2 5s ease-in-out infinite; }
+.hc-3 { bottom: 40%; left: 5%; animation: float1 4.5s ease-in-out infinite; }
+.hc-num { font-size: 1.4rem; font-weight: 800; color: var(--white); line-height: 1; }
+.hc-lbl { font-size: 0.7rem; color: var(--muted); margin-top: 2px; }
+.hc-row { display: flex; align-items: center; gap: 8px; }
+.hc-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; }
+.hc-txt { font-size: 0.78rem; color: var(--white); font-weight: 600; }
+
+@keyframes float1 { 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-10px) } }
+@keyframes float2 { 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(8px) } }
+@keyframes fadeUp { from { opacity:0; transform:translateY(22px) } to { opacity:1; transform:none } }
+@keyframes fadeIn { from { opacity:0 } to { opacity:1 } }
+
+/* ── TRUSTED BY ── */
+#trusted { background: var(--navy2); border-bottom: 1px solid var(--border); padding: 2rem 1.5rem; }
+.trusted-inner { max-width: 1320px; margin: 0 auto; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+.trusted-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #2e4460; white-space: nowrap; }
+.trusted-logos { display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+.trusted-logos span { font-size: 0.78rem; font-weight: 600; color: #3a5470; }
+
+/* ── SERVICES ── */
+#services { background: var(--off); }
+.svc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.4rem; }
+.svc-card { background: #fff; border: 1px solid var(--border2); border-radius: var(--r2); padding: 2rem 1.8rem; transition: transform var(--t), box-shadow var(--t), border-color var(--t); }
+.svc-card:hover { transform: translateY(-5px); box-shadow: var(--shadow2); border-color: var(--blue2); }
+.svc-icon { width: 52px; height: 52px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.2rem; }
+.svc-icon-blue { background: linear-gradient(135deg, var(--blue), var(--blue2)); box-shadow: 0 6px 16px rgba(26,101,214,0.3); }
+.svc-icon-gold { background: linear-gradient(135deg, var(--gold), var(--gold2)); box-shadow: 0 6px 16px rgba(212,144,10,0.3); }
+.svc-icon-green { background: linear-gradient(135deg, #059669, #10b981); box-shadow: 0 6px 16px rgba(16,185,129,0.3); }
+.svc-card h3 { font-size: 1.05rem; font-weight: 700; color: #0a1e35; margin-bottom: 0.5rem; }
+.svc-card p { font-size: 0.87rem; color: var(--muted); line-height: 1.75; }
+
+/* ── DEPT PREVIEW ── */
+#depts { background: var(--white); }
+
+/* ── CTA BAND ── */
+#cta-band { background: linear-gradient(135deg, var(--navy3) 0%, #0d2445 100%); padding: 72px 1.5rem; text-align: center; position: relative; overflow: hidden; }
+#cta-band::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse at center, rgba(26,101,214,0.25) 0%, transparent 70%); pointer-events:none; }
+#cta-band .wrap { position: relative; z-index: 1; }
+#cta-band h2 { font-size: clamp(1.8rem,3.5vw,2.8rem); font-weight: 800; color: var(--white); letter-spacing: -0.025em; margin-bottom: 1rem; }
+#cta-band p { font-size: 1rem; color: #5a7a98; margin-bottom: 2.5rem; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+.cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* ── HIGHLIGHTS ── */
+#highlights { background: var(--off); }
+.hl-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.4rem; }
+.hl-card { background: #fff; border: 1px solid var(--border2); border-radius: var(--r); padding: 1.6rem; }
+.hl-card h3 { font-size: 0.95rem; font-weight: 700; color: #0a1e35; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 8px; }
+.hl-card ul { display: flex; flex-direction: column; gap: 0.45rem; }
+.hl-card li { font-size: 0.83rem; color: var(--muted); display: flex; align-items: baseline; gap: 8px; }
+.hl-card li::before { content:''; display:block; width:4px; height:4px; border-radius:50%; background:var(--blue2); flex-shrink:0; margin-top:2px; }
+
+@media (max-width: 1000px) {
+  #hero { grid-template-columns: 1fr; }
+  .hero-left { padding: 120px 2rem 60px; }
+  .hero-right { display: none; }
+  .hero-h1 { font-size: 3rem; }
+  .svc-grid { grid-template-columns: 1fr; }
+  .hl-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .hl-grid { grid-template-columns: 1fr; }
+  .hero-micro { gap: 1.2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.jpeg" alt="ETC Logo" onerror="this.style.display='none'">
+      <span>ETC <em>Lebanon</em></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="pages/about.html">About</a></li>
+      <li><a href="pages/courses.html">Courses</a></li>
+      <li><a href="pages/schedule.html">Schedule</a></li>
+      <li><a href="pages/kids.html">Kids</a></li>
+      <li><a href="pages/certificates.html">Certificates</a></li>
+      <li><a href="pages/contact.html" class="nav-cta">Contact Us</a></li>
+    </ul>
+    <button class="burger" onclick="toggleMob()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob" id="mob">
+  <button class="mob-close" onclick="closeMob()">✕</button>
+  <a href="index.html" onclick="closeMob()">Home</a>
+  <a href="pages/about.html" onclick="closeMob()">About</a>
+  <a href="pages/courses.html" onclick="closeMob()">Courses</a>
+  <a href="pages/schedule.html" onclick="closeMob()">Schedule</a>
+  <a href="pages/kids.html" onclick="closeMob()">Kids</a>
+  <a href="pages/certificates.html" onclick="closeMob()">Certificates</a>
+  <a href="pages/contact.html" onclick="closeMob()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Est. 2005 · Autodesk &amp; Rhino Authorized
+    </div>
+    <h1 class="hero-h1">
+      Master the<br>
+      <span class="italic-word">Tools</span> That<br>
+      <span class="accent">Build the World</span>
+    </h1>
+    <div class="hero-cycle-wrap">
+      <span class="hero-cycle-label">We teach</span>
+      <span class="hero-cycle" id="heroCycle">BIM &amp; Revit Architecture</span>
+    </div>
+    <p class="hero-p">Lebanon's premier technical training center for engineering, design, coding, and AI. Live online and face-to-face in Dbayeh — serving students across 3 continents since 2005.</p>
+    <div class="hero-btns">
+      <a href="pages/courses.html" class="btn btn-blue btn-lg">Explore Courses</a>
+      <a href="pages/contact.html" class="btn btn-outline btn-lg">Free First Session</a>
+    </div>
+    <div class="hero-micro">
+      <div class="hero-micro-item"><div class="hero-micro-num">20+</div><div class="hero-micro-lbl">Years Active</div></div>
+      <div class="hero-micro-item"><div class="hero-micro-num">156+</div><div class="hero-micro-lbl">Courses</div></div>
+      <div class="hero-micro-item"><div class="hero-micro-num">8</div><div class="hero-micro-lbl">Departments</div></div>
+      <div class="hero-micro-item"><div class="hero-micro-num">3</div><div class="hero-micro-lbl">Continents</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img class="hero-img-main" src="assets/hero-classroom.jpg" alt="ETC Training Center — Students in Classroom" onerror="this.style.background='var(--navy3)'">
+    <div class="hero-img-overlay"></div>
+    <!-- Floating info cards -->
+    <div class="hero-card hc-1">
+      <div class="hc-num">156+</div>
+      <div class="hc-lbl">Available Courses</div>
+    </div>
+    <div class="hero-card hc-2">
+      <div class="hc-row"><span class="hc-dot"></span><span class="hc-txt">Autodesk Authorized</span></div>
+      <div class="hc-row" style="margin-top:6px"><span class="hc-dot" style="background:var(--blue3)"></span><span class="hc-txt">Rhino Authorized</span></div>
+    </div>
+    <div class="hero-card hc-3">
+      <div class="hc-num" style="color:var(--gold2)">Free</div>
+      <div class="hc-lbl">First Session</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUSTED BY -->
+<div id="trusted">
+  <div class="trusted-inner">
+    <span class="trusted-label">Trusted by</span>
+    <div class="trusted-logos">
+      <span>Autodesk</span>
+      <span>·</span>
+      <span>McNeel Rhino</span>
+      <span>·</span>
+      <span>Adobe</span>
+      <span>·</span>
+      <span>CSI (ETABS)</span>
+      <span>·</span>
+      <span>Oracle Primavera</span>
+      <span>·</span>
+      <span>Lebanon DGTVE</span>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stats-row">
+    <div class="stat-box"><div class="stat-num" data-target="20" data-suffix="+">20+</div><div class="stat-lbl">Years of Excellence</div></div>
+    <div class="stat-box"><div class="stat-num" data-target="156" data-suffix="+">156+</div><div class="stat-lbl">Courses Available</div></div>
+    <div class="stat-box"><div class="stat-num" data-target="32" data-suffix="+">32+</div><div class="stat-lbl">Expert Instructors</div></div>
+    <div class="stat-box"><div class="stat-num" data-target="3" data-suffix="">3</div><div class="stat-lbl">Continents Served</div></div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="sh sh-center rv">
+      <div class="tag-label">How We Teach</div>
+      <h2 class="h2">Three Ways to <em>Learn with ETC</em></h2>
+      <p class="lead">Flexible delivery options designed around your schedule, location, and learning style.</p>
+    </div>
+    <div class="svc-grid rv">
+      <div class="svc-card">
+        <div class="svc-icon svc-icon-blue">💻</div>
+        <h3>Live Online via Zoom</h3>
+        <p>Real-time interactive sessions with certified instructors. Morning, evening, and weekend time slots. Join from anywhere in the world with a stable internet connection.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon svc-icon-gold">🏢</div>
+        <h3>Face-to-Face — Dbayeh</h3>
+        <p>Structured classroom training at our Dbayeh, Beirut campus. Computer lab access, hands-on practice, and direct instructor engagement. Ideal for focused, distraction-free learning.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon svc-icon-green">✈️</div>
+        <h3>On-Site Corporate Training</h3>
+        <p>ETC sends certified trainers to your company premises — anywhere in the world. Group rates available. UAE, Saudi Arabia, Europe, USA, and Africa served.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPARTMENTS PREVIEW -->
+<section id="depts">
+  <div class="wrap">
+    <div class="sh rv" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem">
+      <div>
+        <div class="tag-label">Departments</div>
+        <h2 class="h2">8 Disciplines, <em>One Center</em></h2>
+      </div>
+      <a href="pages/courses.html" class="btn btn-outline-blue btn-sm">View All Courses →</a>
+    </div>
+    <div class="dept-grid rv">
+      <div class="dept-card"><img class="dept-card-img" src="https://etc-cc.com/img/mdepartment/3.webp" alt="Building Design" loading="lazy"><div class="dept-card-body"><h3>Building Design</h3><div class="dept-tags"><span class="dtag">Architecture</span><span class="dtag">MEP</span><span class="dtag">Structure</span><span class="dtag">Civil</span><span class="dtag">CAD</span></div></div></div>
+      <div class="dept-card"><img class="dept-card-img" src="https://etc-cc.com/img/mdepartment/10.webp" alt="Architectural Design" loading="lazy"><div class="dept-card-body"><h3>Architectural Design</h3><div class="dept-tags"><span class="dtag">3D Viz</span><span class="dtag">Organic</span><span class="dtag">Green Building</span></div></div></div>
+      <div class="dept-card"><img class="dept-card-img" src="https://etc-cc.com/img/mdepartment/25.webp" alt="Graphics" loading="lazy"><div class="dept-card-body"><h3>Graphics</h3><div class="dept-tags"><span class="dtag">Photography</span><span class="dtag">Animation</span><span class="dtag">Branding</span></div></div></div>
+      <div class="dept-card"><img class="dept-card-img" src="https://etc-cc.com/img/mdepartment/Coding.webp" alt="Coding" loading="lazy"><div class="dept-card-body"><h3>Coding</h3><div class="dept-tags"><span class="dtag">Python</span><span class="dtag">Web Dev</span><span class="dtag">Security</span></div></div></div>
+      <div class="dept-card"><img class="dept-card-img" src="https://etc-cc.com/img/mdepartment/AI.webp" alt="AI" loading="lazy"><div class="dept-card-body"><h3>Artificial Intelligence</h3><div class="dept-tags"><span class="dtag">Generative AI</span><span class="dtag">AI for BIM</span><span class="dtag">AI for Teens</span></div></div></div>
+      <div class="dept-card"><img class="dept-card-img" src="https://etc-cc.com/img/mdepartment/Industrial.webp" alt="Industrial" loading="lazy"><div class="dept-card-body"><h3>Industrial Design</h3><div class="dept-tags"><span class="dtag">SolidWorks</span><span class="dtag">Inventor</span><span class="dtag">Siemens NX</span></div></div></div>
+      <div class="dept-card"><img class="dept-card-img" src="https://etc-cc.com/img/mdepartment/SocialCategory.webp" alt="Marketing" loading="lazy"><div class="dept-card-body"><h3>Marketing</h3><div class="dept-tags"><span class="dtag">Digital Marketing</span><span class="dtag">SEO</span></div></div></div>
+      <div class="dept-card"><img class="dept-card-img" src="https://etc-cc.com/img/mdepartment/MSoffice.jpg" alt="Office" loading="lazy"><div class="dept-card-body"><h3>Office</h3><div class="dept-tags"><span class="dtag">Excel</span><span class="dtag">PowerPoint</span><span class="dtag">Primavera</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HIGHLIGHTS -->
+<section id="highlights">
+  <div class="wrap">
+    <div class="sh rv">
+      <div class="tag-label">Why ETC</div>
+      <h2 class="h2">What Sets Us <em>Apart</em></h2>
+    </div>
+    <div class="hl-grid rv">
+      <div class="hl-card">
+        <h3>🏆 Accreditations</h3>
+        <ul>
+          <li>Autodesk Authorized Training Center</li>
+          <li>McNeel Rhino Authorized Partner</li>
+          <li>Lebanon DGTVE Registered</li>
+          <li>Ministry of Education Certified Programs</li>
+          <li>Adobe Certified Instructor</li>
+        </ul>
+      </div>
+      <div class="hl-card">
+        <h3>📋 Student Benefits</h3>
+        <ul>
+          <li>Free first session — no commitment</li>
+          <li>3-installment payment plans</li>
+          <li>Free course repetition within 1 year</li>
+          <li>Recorded sessions for enrolled students</li>
+          <li>English, Arabic, and French delivery</li>
+        </ul>
+      </div>
+      <div class="hl-card">
+        <h3>🌍 Real-World Projects</h3>
+        <ul>
+          <li>Bahrain Airport Extension BIM (2014)</li>
+          <li>ABC Mall Verdun — LOD 500 (2015)</li>
+          <li>U.S. Embassy, Lebanon (2018)</li>
+          <li>King Faisal Academy, Saudi Arabia (2020)</li>
+          <li>Cameroon Central Bank (2023)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section id="cta-band">
+  <div class="wrap">
+    <h2>Ready to Start? Your First Session is <em style="font-style:normal;color:var(--gold2)">Free</em></h2>
+    <p>No commitment required. Attend one session, evaluate the instructor and curriculum, then decide to enroll.</p>
+    <div class="cta-btns">
+      <a href="pages/contact.html" class="btn btn-blue btn-lg">Book a Free Session</a>
+      <a href="pages/schedule.html" class="btn btn-outline btn-lg">View 2026 Schedule</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="footer-main">
+    <div class="footer-brand">
+      <img src="assets/logo.jpeg" alt="ETC Logo" onerror="this.style.display='none'">
+      <p>Lebanon's premier Autodesk & Rhino Authorized Training Center for engineering, design, coding, and AI. Founded 2005.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <a href="pages/about.html">About ETC</a>
+      <a href="pages/courses.html">Course Catalogue</a>
+      <a href="pages/schedule.html">2026 Schedule</a>
+      <a href="pages/kids.html">ETC for Kids</a>
+      <a href="pages/certificates.html">Certificates</a>
+      <a href="pages/contact.html">Contact Us</a>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <a href="https://etc-cc.com/etc/waitinglist" target="_blank">Waiting List</a>
+      <a href="https://etc-cc.com/etc/activeexams" target="_blank">Free Exams</a>
+      <a href="https://etc-cc.com/etc/exercise" target="_blank">Exercise Files</a>
+      <a href="https://etc-cc.com/etc/bimdownloads" target="_blank">BIM Documents</a>
+      <a href="https://etc-cc.com/etc/faq" target="_blank">FAQ</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="tel:+9613331741">+961 3 331741 (LB)</a>
+      <a href="tel:+351910791911">+351 910 791911 (PT)</a>
+      <a href="tel:+14407594048">+1 440 759 4048 (USA)</a>
+      <a href="mailto:info@etc-cc.com">info@etc-cc.com</a>
+      <a href="https://wa.me/9613331741" target="_blank">WhatsApp</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Expertise Training Center · All Rights Reserved</p>
+    <div class="socials">
+      <a class="soc-btn" href="https://www.youtube.com/@ETCLebanon" target="_blank" title="YouTube"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.7 12 3.7 12 3.7s-7.5 0-9.4.4a3 3 0 0 0-2.1 2.1C.1 8.1.1 12 .1 12s0 3.9.4 5.8a3 3 0 0 0 2.1 2.1c1.9.4 9.4.4 9.4.4s7.5 0 9.4-.4a3 3 0 0 0 2.1-2.1c.4-1.9.4-5.8.4-5.8s0-3.9-.4-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a>
+      <a class="soc-btn" href="https://www.facebook.com/etclebanonandme" target="_blank" title="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1c0 6 4.4 11 10.1 11.9v-8.4H7.1v-3.5h3V9.4c0-3 1.8-4.6 4.5-4.6 1.3 0 2.7.2 2.7.2v3H15.8c-1.5 0-2 .9-2 1.9v2.2h3.3l-.5 3.5H13.8V24C19.6 23.1 24 18.1 24 12.1z"/></svg></a>
+      <a class="soc-btn" href="https://www.linkedin.com/company/expertise-training-center/" target="_blank" title="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.5-2.1 2.9v5.7H9.4V9h3.4v1.6h.1c.5-.9 1.6-1.8 3.3-1.8 3.5 0 4.2 2.3 4.2 5.4v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM3.5 20.4H7V9H3.5v11.4zM22.2 0H1.8C.8 0 0 .8 0 1.8v20.4C0 23.2.8 24 1.8 24h20.4c1 0 1.8-.8 1.8-1.8V1.8C24 .8 23.2 0 22.2 0z"/></svg></a>
+      <a class="soc-btn" href="https://www.instagram.com/learnwith.etc/" target="_blank" title="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8c.1-3.2 1.6-4.8 4.9-4.9 1.2-.1 1.5-.1 4.8-.1zm0-2.2C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7C8.3 24 8.7 24 12 24s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+// Cycling text in hero
+const cycles = [
+  'BIM &amp; Revit Architecture',
+  'Coding with Python &amp; JavaScript',
+  'Generative AI &amp; Automation',
+  '3D Visualization &amp; V-Ray',
+  'Photography &amp; Video Production',
+  'AutoCAD &amp; Civil 3D',
+  'Adobe Design Suite',
+  'Industrial Design (SolidWorks)',
+  'Digital Marketing &amp; SEO',
+  'Rhino &amp; Grasshopper',
+];
+let ci = 0;
+const el = document.getElementById('heroCycle');
+setInterval(() => {
+  el.classList.add('fade');
+  setTimeout(() => {
+    ci = (ci + 1) % cycles.length;
+    el.innerHTML = cycles[ci];
+    el.classList.remove('fade');
+  }, 420);
+}, 2800);
+</script>
+</body>
+</html>

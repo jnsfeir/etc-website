@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>2026 Schedule — ETC Training Center</title>
+<link rel="stylesheet" href="../css/styles.css">
+<style>
+.sched-filters { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:2rem; }
+.sched-filter { font-size:0.78rem; font-weight:600; padding:0.4rem 1rem; border-radius:100px; border:1.5px solid var(--border2); color:var(--muted); cursor:pointer; background:transparent; transition:all var(--t); }
+.sched-filter:hover { border-color:var(--blue2); color:var(--blue); }
+.sched-filter.on { background:var(--blue); border-color:var(--blue); color:#fff; }
+
+.sched-table-wrap { border-radius:var(--r); overflow:hidden; border:1px solid var(--border2); box-shadow:var(--shadow); }
+.sched-table { width:100%; border-collapse:collapse; font-size:0.84rem; }
+.sched-table th { background:var(--navy2); color:var(--muted); font-weight:600; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; padding:0.8rem 1rem; text-align:left; }
+.sched-table td { padding:0.75rem 1rem; border-bottom:1px solid var(--off); color:#2a3f58; }
+.sched-table tr:last-child td { border-bottom:none; }
+.sched-table tr:hover td { background:#f8faff; }
+.sched-table .flag { font-size:1rem; }
+.loc-badge { display:inline-block; font-size:0.68rem; font-weight:700; padding:0.2rem 0.55rem; border-radius:4px; }
+.loc-lb { background:#eef4ff; color:var(--blue); }
+.loc-online { background:#f0fdf4; color:#16a34a; }
+.loc-uae { background:#fffbeb; color:#b45309; }
+.loc-africa { background:#fdf4ff; color:#9333ea; }
+.time-cell { color:var(--muted); font-size:0.8rem; }
+.trainer-cell { color:#4a6480; font-size:0.8rem; }
+.hrs-badge { background:var(--off); color:var(--muted); font-size:0.72rem; font-weight:600; padding:0.15rem 0.5rem; border-radius:4px; }
+.date-cell { font-weight:600; color:#0a1e35; white-space:nowrap; }
+
+.row-hide { display:none; }
+
+.info-box { background:rgba(26,101,214,0.07); border:1px solid rgba(26,101,214,0.2); border-radius:var(--r); padding:1.2rem 1.5rem; margin-bottom:2rem; display:flex; align-items:flex-start; gap:12px; }
+.info-box .icon { font-size:1.3rem; flex-shrink:0; }
+.info-box p { font-size:0.84rem; color:#2a4a6a; line-height:1.7; }
+.info-box a { color:var(--blue2); font-weight:600; }
+</style>
+</head>
+<body>
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><img src="../assets/logo.jpeg" alt="ETC" onerror="this.style.display='none'"><span>ETC <em>Lebanon</em></span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="schedule.html" class="active">Schedule</a></li>
+      <li><a href="kids.html">Kids</a></li>
+      <li><a href="certificates.html">Certificates</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+    </ul>
+    <button class="burger" onclick="toggleMob()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob" id="mob">
+  <button class="mob-close" onclick="closeMob()">✕</button>
+  <a href="../index.html" onclick="closeMob()">Home</a><a href="about.html" onclick="closeMob()">About</a><a href="courses.html" onclick="closeMob()">Courses</a><a href="schedule.html" onclick="closeMob()">Schedule</a><a href="kids.html" onclick="closeMob()">Kids</a><a href="certificates.html" onclick="closeMob()">Certificates</a><a href="contact.html" onclick="closeMob()">Contact</a>
+</div>
+
+<div class="page-wrap">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb"><a href="../index.html">Home</a><span>Schedule</span></div>
+      <h1>2026 <em>Training Schedule</em></h1>
+      <p>Upcoming courses across Lebanon, UAE, and Online. 57 classes available for 2026.</p>
+    </div>
+  </div>
+
+  <section style="background:var(--white)">
+    <div class="wrap">
+      <div class="info-box rv">
+        <span class="icon">ℹ️</span>
+        <p>All Lebanon classes are also available <strong>live online via Zoom</strong>. Don't see your course? <a href="https://etc-cc.com/etc/waitinglist" target="_blank">Join the waiting list</a> and we'll notify you when it's scheduled. First session is always free — <a href="contact.html">contact us</a> to reserve.</p>
+      </div>
+
+      <div class="sched-filters rv">
+        <button class="sched-filter on" data-loc="all">All Locations</button>
+        <button class="sched-filter" data-loc="LB">🇱🇧 Lebanon</button>
+        <button class="sched-filter" data-loc="ONLINE">💻 Online</button>
+        <button class="sched-filter" data-loc="UAE">🇦🇪 UAE</button>
+      </div>
+
+      <div class="sched-table-wrap rv">
+        <table class="sched-table">
+          <thead><tr><th>Location</th><th>Course</th><th>Start Date</th><th>Days</th><th>Time</th><th>Hours</th><th>Instructor</th></tr></thead>
+          <tbody id="schedBody">
+            <tr data-loc="LB"><td><span class="loc-badge loc-lb">🇱🇧 Dbayeh</span></td><td>Revit 2A — MEP HVAC Piping FP Electrical</td><td class="date-cell">Sep 1</td><td>Tue / Thu</td><td class="time-cell">6:30 – 9:00 PM</td><td><span class="hrs-badge">32 hrs</span></td><td class="trainer-cell">Mike Sfeir</td></tr>
+            <tr data-loc="LB"><td><span class="loc-badge loc-lb">🇱🇧 Dbayeh</span></td><td>Revit 3 — Constructing, Sharing &amp; Collaborating</td><td class="date-cell">Sep 1</td><td>Tue / Thu</td><td class="time-cell">6:00 – 8:30 PM</td><td><span class="hrs-badge">24 hrs</span></td><td class="trainer-cell">Ali Charara</td></tr>
+            <tr data-loc="LB"><td><span class="loc-badge loc-lb">🇱🇧 Dbayeh</span></td><td>AI for Teenagers</td><td class="date-cell">Aug 4</td><td>Tue / Thu</td><td class="time-cell">10:00 AM – 12:00 PM</td><td><span class="hrs-badge">16 hrs</span></td><td class="trainer-cell">Naji Sfeir</td></tr>
+            <tr data-loc="LB"><td><span class="loc-badge loc-lb">🇱🇧 Dbayeh</span></td><td>Python 2 — Data Science, OOPs &amp; UI</td><td class="date-cell">Aug 3</td><td>Mon–Thu</td><td class="time-cell">10:00 AM – 12:00 PM</td><td><span class="hrs-badge">36 hrs</span></td><td class="trainer-cell">Alain Sfeir</td></tr>
+            <tr data-loc="LB"><td><span class="loc-badge loc-lb">🇱🇧 Dbayeh</span></td><td>Revit 2 — Design &amp; Modeling</td><td class="date-cell">Aug 3</td><td>Mon/Wed/Fri</td><td class="time-cell">10:00 AM – 12:30 PM</td><td><span class="hrs-badge">30 hrs</span></td><td class="trainer-cell">Celine Sfeir</td></tr>
+            <tr data-loc="LB"><td><span class="loc-badge loc-lb">🇱🇧 Dbayeh</span></td><td>Rhino 1 — Fundamentals for All</td><td class="date-cell">Jul 15</td><td>Mon / Wed</td><td class="time-cell">2:30 – 5:00 PM</td><td><span class="hrs-badge">30 hrs</span></td><td class="trainer-cell">Rany Ammoury</td></tr>
+            <tr data-loc="LB"><td><span class="loc-badge loc-lb">🇱🇧 Dbayeh</span></td><td>Photography — Fundamentals</td><td class="date-cell">Jul 7</td><td>Tue / Thu</td><td class="time-cell">10:00 AM – 1:00 PM</td><td><span class="hrs-badge">30 hrs</span></td><td class="trainer-cell">Naji Sfeir</td></tr>
+            <tr data-loc="LB"><td><span class="loc-badge loc-lb">🇱🇧 Dbayeh</span></td><td>Python 1 — Fundamentals</td><td class="date-cell">Jul 6</td><td>Mon–Thu</td><td class="time-cell">10:00 AM – 12:00 PM</td><td><span class="hrs-badge">30 hrs</span></td><td class="trainer-cell">Alain Sfeir</td></tr>
+            <tr data-loc="LB"><td><span class="loc-badge loc-lb">🇱🇧 Dbayeh</span></td><td>Revit 1 — Fundamentals for All Disciplines</td><td class="date-cell">Jul 6</td><td>Mon/Wed/Fri</td><td class="time-cell">10:00 AM – 12:30 PM</td><td><span class="hrs-badge">30 hrs</span></td><td class="trainer-cell">Cynthia Sfeir</td></tr>
+            <tr data-loc="LB"><td><span class="loc-badge loc-lb">🇱🇧 Dbayeh</span></td><td>Adobe Premiere — Video Editing + AI</td><td class="date-cell">Jul 6</td><td>Mon/Wed/Fri</td><td class="time-cell">10:00 AM – 12:00 PM</td><td><span class="hrs-badge">20 hrs</span></td><td class="trainer-cell">Naji Sfeir</td></tr>
+            <tr data-loc="LB"><td><span class="loc-badge loc-lb">🇱🇧 Dbayeh</span></td><td>AutoCAD 1 — 2D</td><td class="date-cell">Jul 2</td><td>Tue / Thu</td><td class="time-cell">10:00 AM – 1:00 PM</td><td><span class="hrs-badge">30 hrs</span></td><td class="trainer-cell">Cynthia Sfeir</td></tr>
+            <tr data-loc="LB"><td><span class="loc-badge loc-lb">🇱🇧 Dbayeh</span></td><td>AutoCAD 1 — 2D</td><td class="date-cell">Jun 2</td><td>Tue / Thu</td><td class="time-cell">10:00 AM – 1:00 PM</td><td><span class="hrs-badge">30 hrs</span></td><td class="trainer-cell">Cynthia Sfeir</td></tr>
+            <tr data-loc="LB"><td><span class="loc-badge loc-lb">🇱🇧 Dbayeh</span></td><td>Rhino 1 — Fundamentals for All</td><td class="date-cell">Jun 1</td><td>Mon / Wed</td><td class="time-cell">2:30 – 5:00 PM</td><td><span class="hrs-badge">30 hrs</span></td><td class="trainer-cell">Rany Ammoury</td></tr>
+            <tr data-loc="LB"><td><span class="loc-badge loc-lb">🇱🇧 Dbayeh</span></td><td>Revit 1 — Fundamentals for All Disciplines</td><td class="date-cell">Jun 1</td><td>Mon/Wed/Fri</td><td class="time-cell">10:00 AM – 12:30 PM</td><td><span class="hrs-badge">30 hrs</span></td><td class="trainer-cell">Cynthia Sfeir</td></tr>
+            <tr data-loc="LB"><td><span class="loc-badge loc-lb">🇱🇧 Dbayeh</span></td><td>Revit 1 — Fundamentals for All Disciplines</td><td class="date-cell">May 13</td><td>Mon–Fri</td><td class="time-cell">1:00 – 3:00 PM</td><td><span class="hrs-badge">30 hrs</span></td><td class="trainer-cell">Naji Sfeir</td></tr>
+            <tr data-loc="LB"><td><span class="loc-badge loc-lb">🇱🇧 Dbayeh</span></td><td>3DS Max 2 — Vray Renderer for Architects</td><td class="date-cell">May 4</td><td>Mon/Wed/Fri</td><td class="time-cell">3:00 – 5:00 PM</td><td><span class="hrs-badge">20 hrs</span></td><td class="trainer-cell">Gretta Khoury</td></tr>
+            <tr data-loc="LB"><td><span class="loc-badge loc-lb">🇱🇧 Dbayeh</span></td><td>AutoCAD 1 — 2D</td><td class="date-cell">Apr 21</td><td>Mon–Fri</td><td class="time-cell">10:00 AM – 1:00 PM</td><td><span class="hrs-badge">30 hrs</span></td><td class="trainer-cell">Naji Sfeir</td></tr>
+            <tr data-loc="ONLINE"><td><span class="loc-badge loc-online">💻 Online</span></td><td>AutoCAD 4 — 3D</td><td class="date-cell">May 25</td><td>Mon–Fri</td><td class="time-cell">12:00 – 2:00 PM</td><td><span class="hrs-badge">20 hrs</span></td><td class="trainer-cell">Elie Abi Safi</td></tr>
+            <tr data-loc="ONLINE"><td><span class="loc-badge loc-online">💻 Online</span></td><td>3DS Max 2 — Vray Renderer for Architects</td><td class="date-cell">May 18</td><td>Mon / Wed</td><td class="time-cell">12:00 – 2:00 PM</td><td><span class="hrs-badge">20 hrs</span></td><td class="trainer-cell">Gretta Khoury</td></tr>
+            <tr data-loc="UAE"><td><span class="loc-badge loc-uae">🇦🇪 UAE</span></td><td>AutoCAD Civil 3D — Essentials</td><td class="date-cell">Apr 18</td><td>Saturday</td><td class="time-cell">9:00 AM – 4:00 PM</td><td><span class="hrs-badge">30 hrs</span></td><td class="trainer-cell">Joseph Bsaibess</td></tr>
+            <tr data-loc="UAE"><td><span class="loc-badge loc-uae">🇦🇪 UAE</span></td><td>Revit 2 — Design &amp; Modeling</td><td class="date-cell">Apr 18</td><td>Saturday</td><td class="time-cell">9:00 AM – 4:00 PM</td><td><span class="hrs-badge">30 hrs</span></td><td class="trainer-cell">Celine Sfeir</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:1.5rem;font-size:0.82rem;color:var(--muted);text-align:center">For the complete 57-class schedule: <a href="https://etc-cc.com/etc/schedule" target="_blank" style="color:var(--blue2);font-weight:600">etc-cc.com/etc/schedule</a> &nbsp;·&nbsp; <a href="https://etc-cc.com/etc/waitinglist" target="_blank" style="color:var(--blue2);font-weight:600">Join the waiting list</a></p>
+    </div>
+  </section>
+</div>
+
+<footer id="footer">
+  <div class="footer-main">
+    <div class="footer-brand"><img src="../assets/logo.jpeg" alt="ETC" onerror="this.style.display='none'"><p>Lebanon's premier Autodesk &amp; Rhino Authorized Training Center. Founded 2005.</p></div>
+    <div class="footer-col"><h4>Pages</h4><a href="../index.html">Home</a><a href="about.html">About</a><a href="courses.html">Courses</a><a href="schedule.html">Schedule</a><a href="kids.html">Kids</a><a href="contact.html">Contact</a></div>
+    <div class="footer-col"><h4>Contact</h4><a href="tel:+9613331741">+961 3 331741 (LB)</a><a href="mailto:info@etc-cc.com">info@etc-cc.com</a><a href="https://wa.me/9613331741">WhatsApp</a></div>
+    <div class="footer-col"><h4>Resources</h4><a href="https://etc-cc.com/etc/waitinglist" target="_blank">Waiting List</a><a href="https://etc-cc.com/etc/faq" target="_blank">FAQ</a></div>
+  </div>
+  <div class="footer-bottom"><p>© 2026 Expertise Training Center · All Rights Reserved</p></div>
+</footer>
+<script src="../js/main.js"></script>
+<script>
+document.querySelectorAll('.sched-filter').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.sched-filter').forEach(b => b.classList.remove('on'));
+    btn.classList.add('on');
+    const loc = btn.dataset.loc;
+    document.querySelectorAll('#schedBody tr').forEach(row => {
+      if (loc === 'all' || row.dataset.loc === loc) row.style.display = '';
+      else row.style.display = 'none';
+    });
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Courses — ETC Training Center</title>
+<link rel="stylesheet" href="../css/styles.css">
+<style>
+.dept-hero-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.2rem; margin-bottom:3rem; }
+.dept-hero-card { border-radius:var(--r); overflow:hidden; border:1px solid var(--border2); background:#fff; box-shadow:var(--shadow); transition:transform var(--t), box-shadow var(--t), border-color var(--t); cursor:pointer; }
+.dept-hero-card:hover, .dept-hero-card.active { transform:translateY(-4px); box-shadow:var(--shadow2); border-color:var(--blue2); }
+.dept-hero-card.active { border-color:var(--blue); box-shadow:0 0 0 2px var(--blue), var(--shadow2); }
+.dhc-img { width:100%; height:140px; object-fit:cover; }
+.dhc-body { padding:1rem; }
+.dhc-body h3 { font-size:0.85rem; font-weight:700; color:#0a1e35; }
+.dhc-body p { font-size:0.72rem; color:var(--muted); margin-top:2px; }
+</style>
+</head>
+<body>
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><img src="../assets/logo.jpeg" alt="ETC" onerror="this.style.display='none'"><span>ETC <em>Lebanon</em></span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li><li><a href="about.html">About</a></li>
+      <li><a href="courses.html" class="active">Courses</a></li><li><a href="schedule.html">Schedule</a></li>
+      <li><a href="kids.html">Kids</a></li><li><a href="certificates.html">Certificates</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+    </ul>
+    <button class="burger" onclick="toggleMob()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob" id="mob">
+  <button class="mob-close" onclick="closeMob()">✕</button>
+  <a href="../index.html" onclick="closeMob()">Home</a><a href="about.html" onclick="closeMob()">About</a><a href="courses.html" onclick="closeMob()">Courses</a><a href="schedule.html" onclick="closeMob()">Schedule</a><a href="kids.html" onclick="closeMob()">Kids</a><a href="certificates.html" onclick="closeMob()">Certificates</a><a href="contact.html" onclick="closeMob()">Contact</a>
+</div>
+
+<div class="page-wrap">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb"><a href="../index.html">Home</a><span>Courses</span></div>
+      <h1>Course <em>Catalogue</em></h1>
+      <p>156+ courses across 8 departments. Click a department card to browse courses and pricing.</p>
+    </div>
+  </div>
+
+  <section style="background:var(--white)">
+    <div class="wrap">
+      <!-- DEPT CARDS -->
+      <div class="dept-hero-grid rv">
+        <div class="dept-hero-card active" onclick="showDept('arch',this)"><img class="dhc-img" src="https://etc-cc.com/img/mdepartment/3.webp" alt="Architecture"><div class="dhc-body"><h3>Building Design</h3><p>12 courses</p></div></div>
+        <div class="dept-hero-card" onclick="showDept('viz',this)"><img class="dhc-img" src="https://etc-cc.com/img/mdepartment/10.webp" alt="3D Viz"><div class="dhc-body"><h3>Architectural Design</h3><p>14 courses</p></div></div>
+        <div class="dept-hero-card" onclick="showDept('graphics',this)"><img class="dhc-img" src="https://etc-cc.com/img/mdepartment/25.webp" alt="Graphics"><div class="dhc-body"><h3>Graphics &amp; Media</h3><p>28 courses</p></div></div>
+        <div class="dept-hero-card" onclick="showDept('industrial',this)"><img class="dhc-img" src="https://etc-cc.com/img/mdepartment/Industrial.webp" alt="Industrial"><div class="dhc-body"><h3>Industrial Design</h3><p>6 courses</p></div></div>
+        <div class="dept-hero-card" onclick="showDept('coding',this)"><img class="dhc-img" src="https://etc-cc.com/img/mdepartment/Coding.webp" alt="Coding"><div class="dhc-body"><h3>Coding</h3><p>14 courses</p></div></div>
+        <div class="dept-hero-card" onclick="showDept('ai',this)"><img class="dhc-img" src="https://etc-cc.com/img/mdepartment/AI.webp" alt="AI"><div class="dhc-body"><h3>Artificial Intelligence</h3><p>10 courses</p></div></div>
+        <div class="dept-hero-card" onclick="showDept('mktg',this)"><img class="dhc-img" src="https://etc-cc.com/img/mdepartment/SocialCategory.webp" alt="Marketing"><div class="dhc-body"><h3>Marketing</h3><p>2 courses</p></div></div>
+        <div class="dept-hero-card" onclick="showDept('office',this)"><img class="dhc-img" src="https://etc-cc.com/img/mdepartment/MSoffice.jpg" alt="Office"><div class="dhc-body"><h3>Office &amp; PM</h3><p>6 courses</p></div></div>
+      </div>
+
+      <!-- COURSE TABLES -->
+      <div id="dept-arch" class="tab-panel show rv">
+        <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:1rem;color:#0a1e35">Building Design — Architecture / MEP / Structure / Civil / PM / CAD</h3>
+        <div class="tab-bar">
+          <button class="tab on" data-tab="p-arch">Architecture</button>
+          <button class="tab" data-tab="p-mep">MEP</button>
+          <button class="tab" data-tab="p-struct">Structure</button>
+          <button class="tab" data-tab="p-civil">Civil &amp; GIS</button>
+          <button class="tab" data-tab="p-pm">Project Management</button>
+          <button class="tab" data-tab="p-cad">CAD &amp; Drafting</button>
+        </div>
+        <div id="p-arch" class="tab-panel show"><div class="table-wrap"><table class="etc-table"><thead><tr><th>Course</th><th>Hours</th><th>Fee (USD)</th></tr></thead><tbody>
+          <tr><td>Free BIM Orientation (Arabic)</td><td class="hrs-cell">2</td><td class="price-cell">Free</td></tr>
+          <tr><td>Revit 1 – Fundamentals for All Disciplines</td><td class="hrs-cell">30</td><td class="price-cell">$330</td></tr>
+          <tr><td>Revit 2 – Design and Modeling</td><td class="hrs-cell">30</td><td class="price-cell">$350</td></tr>
+          <tr><td>Revit 3 – Constructing, Sharing &amp; Collaborating</td><td class="hrs-cell">24</td><td class="price-cell">$400</td></tr>
+          <tr><td>Revit 4 – Façade and Cladding Designs</td><td class="hrs-cell">16</td><td class="price-cell">$450</td></tr>
+          <tr><td>Revit 5 – Dynamo</td><td class="hrs-cell">30</td><td class="price-cell">$450</td></tr>
+          <tr><td>AI for Revit Users (BIM)</td><td class="hrs-cell">15</td><td class="price-cell">$390</td></tr>
+          <tr><td>Navisworks – Manage</td><td class="hrs-cell">16</td><td class="price-cell">$350</td></tr>
+          <tr><td>Autodesk Construction Cloud</td><td class="hrs-cell">16</td><td class="price-cell">$450</td></tr>
+          <tr><td>Revit Real Project Implementation</td><td class="hrs-cell">20</td><td class="price-cell">$450</td></tr>
+          <tr><td>Enscape – Render in Revit</td><td class="hrs-cell">12</td><td class="price-cell">$250</td></tr>
+          <tr><td>BIM 360 Design</td><td class="hrs-cell">10</td><td class="price-cell">$350</td></tr>
+        </tbody></table></div></div>
+        <div id="p-mep" class="tab-panel"><div class="table-wrap"><table class="etc-table"><thead><tr><th>Course</th><th>Hours</th><th>Fee (USD)</th></tr></thead><tbody>
+          <tr><td>Revit 1 – Fundamentals</td><td class="hrs-cell">30</td><td class="price-cell">$300</td></tr>
+          <tr><td>Revit 2A – MEP HVAC Piping FP Electrical</td><td class="hrs-cell">32</td><td class="price-cell">$400</td></tr>
+          <tr><td>Revit 2B – MEP Electrical</td><td class="hrs-cell">24</td><td class="price-cell">$400</td></tr>
+          <tr><td>Revit 3 – MEP Advanced</td><td class="hrs-cell">18</td><td class="price-cell">$400</td></tr>
+          <tr><td>AutoCAD Mechanical</td><td class="hrs-cell">30</td><td class="price-cell">$450</td></tr>
+          <tr><td>AutoCAD Electrical</td><td class="hrs-cell">24</td><td class="price-cell">$450</td></tr>
+          <tr><td>Revit Insight 360: Energy Analysis</td><td class="hrs-cell">12</td><td class="price-cell">$450</td></tr>
+          <tr><td>Revit Insight 360: Lighting Analysis</td><td class="hrs-cell">12</td><td class="price-cell">$450</td></tr>
+        </tbody></table></div></div>
+        <div id="p-struct" class="tab-panel"><div class="table-wrap"><table class="etc-table"><thead><tr><th>Course</th><th>Hours</th><th>Fee (USD)</th></tr></thead><tbody>
+          <tr><td>Revit 1 – Fundamentals</td><td class="hrs-cell">30</td><td class="price-cell">$330</td></tr>
+          <tr><td>Revit 2 – Design and Modeling</td><td class="hrs-cell">30</td><td class="price-cell">$350</td></tr>
+          <tr><td>Revit 3 – Structure Advanced</td><td class="hrs-cell">18</td><td class="price-cell">$400</td></tr>
+          <tr><td>Revit 4 – Rebar and Reinforcements</td><td class="hrs-cell">20</td><td class="price-cell">$450</td></tr>
+          <tr><td>Robot – Analysis and Design of Concrete Buildings</td><td class="hrs-cell">24</td><td class="price-cell">$500</td></tr>
+          <tr><td>Robot Structural Analysis – Advanced</td><td class="hrs-cell">16</td><td class="price-cell">$350</td></tr>
+          <tr><td>ETABS – Fundamentals</td><td class="hrs-cell">16</td><td class="price-cell">$350</td></tr>
+          <tr><td>ETABS – Advanced</td><td class="hrs-cell">16</td><td class="price-cell">$350</td></tr>
+          <tr><td>SAFE – Concrete and Slab Design</td><td class="hrs-cell">16</td><td class="price-cell">$350</td></tr>
+          <tr><td>Autodesk Advance Steel – Structural Shop Drawings</td><td class="hrs-cell">30</td><td class="price-cell">$600</td></tr>
+          <tr><td>Autodesk Advance Concrete</td><td class="hrs-cell">20</td><td class="price-cell">$600</td></tr>
+        </tbody></table></div></div>
+        <div id="p-civil" class="tab-panel"><div class="table-wrap"><table class="etc-table"><thead><tr><th>Course</th><th>Hours</th><th>Fee (USD)</th></tr></thead><tbody>
+          <tr><td>AutoCAD Civil 3D – Essentials</td><td class="hrs-cell">30</td><td class="price-cell">$450</td></tr>
+          <tr><td>AutoCAD Civil 3D – For Surveyors</td><td class="hrs-cell">20</td><td class="price-cell">$450</td></tr>
+          <tr><td>AI for Civil 3D Users</td><td class="hrs-cell">15</td><td class="price-cell">$450</td></tr>
+          <tr><td>InfraWorks – Fundamentals</td><td class="hrs-cell">16</td><td class="price-cell">$600</td></tr>
+          <tr><td>InfraWorks – Engineering Design</td><td class="hrs-cell">20</td><td class="price-cell">$800</td></tr>
+          <tr><td>GIS 1 – Maps, Data, and Applications</td><td class="hrs-cell">20</td><td class="price-cell">$600</td></tr>
+          <tr><td>GIS 2 – Spatial Analysis</td><td class="hrs-cell">20</td><td class="price-cell">$600</td></tr>
+        </tbody></table></div></div>
+        <div id="p-pm" class="tab-panel"><div class="table-wrap"><table class="etc-table"><thead><tr><th>Course</th><th>Hours</th><th>Fee (USD)</th></tr></thead><tbody>
+          <tr><td>Primavera P6 for Beginners</td><td class="hrs-cell">20</td><td class="price-cell">$350</td></tr>
+          <tr><td>Primavera P6 for Engineers</td><td class="hrs-cell">20</td><td class="price-cell">$450</td></tr>
+          <tr><td>Quantity Surveying and Estimation</td><td class="hrs-cell">30</td><td class="price-cell">$600</td></tr>
+          <tr><td>Synchro 4D – Construction Management</td><td class="hrs-cell">20</td><td class="price-cell">$400</td></tr>
+          <tr><td>MS Excel Beginner to Advanced</td><td class="hrs-cell">20</td><td class="price-cell">$350</td></tr>
+        </tbody></table></div></div>
+        <div id="p-cad" class="tab-panel"><div class="table-wrap"><table class="etc-table"><thead><tr><th>Course</th><th>Hours</th><th>Fee (USD)</th></tr></thead><tbody>
+          <tr><td>AutoCAD 1 – 2D</td><td class="hrs-cell">30</td><td class="price-cell">$280</td></tr>
+          <tr><td>AutoCAD 2 – Advanced</td><td class="hrs-cell">20</td><td class="price-cell">$350</td></tr>
+          <tr><td>AI for AutoCAD Users</td><td class="hrs-cell">15</td><td class="price-cell">$330</td></tr>
+          <tr><td>AutoCAD 3 – Production</td><td class="hrs-cell">20</td><td class="price-cell">$300</td></tr>
+          <tr><td>AutoCAD 4 – 3D</td><td class="hrs-cell">20</td><td class="price-cell">$400</td></tr>
+          <tr><td>Autodesk Fusion 360</td><td class="hrs-cell">35</td><td class="price-cell">$480</td></tr>
+          <tr><td>Construction Document Preparation (NCS)</td><td class="hrs-cell">20</td><td class="price-cell">$400</td></tr>
+        </tbody></table></div></div>
+      </div>
+
+      <div id="dept-viz" class="tab-panel rv">
+        <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:1rem;color:#0a1e35">Architectural Design — 3D Visualization / Organic / Green Building</h3>
+        <div class="tab-bar">
+          <button class="tab on" data-tab="p-3ds">3DS Max &amp; V-Ray</button>
+          <button class="tab" data-tab="p-sketchup">SketchUp &amp; Render</button>
+          <button class="tab" data-tab="p-rhino">Rhino &amp; Organic</button>
+          <button class="tab" data-tab="p-leed">LEED Green Building</button>
+        </div>
+        <div id="p-3ds" class="tab-panel show"><div class="table-wrap"><table class="etc-table"><thead><tr><th>Course</th><th>Hours</th><th>Fee (USD)</th></tr></thead><tbody>
+          <tr><td>3DS Max 1 – Architects &amp; Interior Designers</td><td class="hrs-cell">36</td><td class="price-cell">$330</td></tr>
+          <tr><td>3DS Max 2 – Vray Renderer for Architects</td><td class="hrs-cell">20</td><td class="price-cell">$300</td></tr>
+          <tr><td>3DS Max 3 – Vray Advanced</td><td class="hrs-cell">16</td><td class="price-cell">$350</td></tr>
+          <tr><td>3DS Max 4 – Advanced Modeling &amp; UVWs</td><td class="hrs-cell">24</td><td class="price-cell">$450</td></tr>
+          <tr><td>3DS Max 5 – Production for Architects</td><td class="hrs-cell">20</td><td class="price-cell">$300</td></tr>
+          <tr><td>3DS Max 6 – Animation</td><td class="hrs-cell">16</td><td class="price-cell">$350</td></tr>
+          <tr><td>AI for 3DS Max Users</td><td class="hrs-cell">30</td><td class="price-cell">$600</td></tr>
+          <tr><td>Corona Renderer for Interior Architects</td><td class="hrs-cell">16</td><td class="price-cell">$350</td></tr>
+        </tbody></table></div></div>
+        <div id="p-sketchup" class="tab-panel"><div class="table-wrap"><table class="etc-table"><thead><tr><th>Course</th><th>Hours</th><th>Fee (USD)</th></tr></thead><tbody>
+          <tr><td>Google SketchUp for Architects</td><td class="hrs-cell">20</td><td class="price-cell">$350</td></tr>
+          <tr><td>Google SketchUp for Site Design</td><td class="hrs-cell">20</td><td class="price-cell">$450</td></tr>
+          <tr><td>D5 Render + AI for Architects</td><td class="hrs-cell">30</td><td class="price-cell">$450</td></tr>
+          <tr><td>Lumion Pro – Quick Landscaping</td><td class="hrs-cell">20</td><td class="price-cell">$250</td></tr>
+          <tr><td>Render with AI</td><td class="hrs-cell">16</td><td class="price-cell">$300</td></tr>
+          <tr><td>2020 Kitchen Design</td><td class="hrs-cell">20</td><td class="price-cell">$450</td></tr>
+        </tbody></table></div></div>
+        <div id="p-rhino" class="tab-panel"><div class="table-wrap"><table class="etc-table"><thead><tr><th>Course</th><th>Hours</th><th>Fee (USD)</th></tr></thead><tbody>
+          <tr><td>Rhino 1 – Fundamentals for All</td><td class="hrs-cell">30</td><td class="price-cell">$350</td></tr>
+          <tr><td>Rhino 2 – Jewelry Design</td><td class="hrs-cell">20</td><td class="price-cell">$450</td></tr>
+          <tr><td>Rhino 2 – Exterior &amp; Interior Architecture</td><td class="hrs-cell">24</td><td class="price-cell">$450</td></tr>
+          <tr><td>Rhino 2 – Product &amp; Furniture Design</td><td class="hrs-cell">24</td><td class="price-cell">$450</td></tr>
+          <tr><td>Grasshopper – Algorithmic Modeling</td><td class="hrs-cell">30</td><td class="price-cell">$450</td></tr>
+          <tr><td>MatrixGold – Jewelry Design</td><td class="hrs-cell">40</td><td class="price-cell">$600</td></tr>
+          <tr><td>Vray for Rhino</td><td class="hrs-cell">12</td><td class="price-cell">$350</td></tr>
+          <tr><td>Blender – 3D &amp; Visual Effects</td><td class="hrs-cell">20</td><td class="price-cell">$450</td></tr>
+          <tr><td>Keyshot</td><td class="hrs-cell">12</td><td class="price-cell">$350</td></tr>
+          <tr><td>3D Printing</td><td class="hrs-cell">10</td><td class="price-cell">$250</td></tr>
+        </tbody></table></div></div>
+        <div id="p-leed" class="tab-panel"><div class="table-wrap"><table class="etc-table"><thead><tr><th>Course</th><th>Hours</th><th>Fee (USD)</th></tr></thead><tbody>
+          <tr><td>LEED Green Associate</td><td class="hrs-cell">20</td><td class="price-cell">$200</td></tr>
+          <tr><td>LEED Accredited Professional</td><td class="hrs-cell">30</td><td class="price-cell">$500</td></tr>
+        </tbody></table></div></div>
+      </div>
+
+      <div id="dept-graphics" class="tab-panel rv">
+        <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:1rem;color:#0a1e35">Graphics &amp; Media — Photography / Animation / Layout / Web Design / Fashion / Branding</h3>
+        <div class="tab-bar">
+          <button class="tab on" data-tab="p-photo2">Photography</button>
+          <button class="tab" data-tab="p-adobe">Adobe Suite</button>
+          <button class="tab" data-tab="p-anim3">3D Animation</button>
+          <button class="tab" data-tab="p-layout">Layout &amp; Branding</button>
+          <button class="tab" data-tab="p-webdesign">Web Design</button>
+          <button class="tab" data-tab="p-fashion">Fashion</button>
+        </div>
+        <div id="p-photo2" class="tab-panel show"><div class="table-wrap"><table class="etc-table"><thead><tr><th>Course</th><th>Hours</th><th>Fee (USD)</th></tr></thead><tbody>
+          <tr><td>Photography – Fundamentals</td><td class="hrs-cell">30</td><td class="price-cell">$450</td></tr>
+          <tr><td>Photography &amp; Video Production for Social Media</td><td class="hrs-cell">35</td><td class="price-cell">$400</td></tr>
+          <tr><td>Photography Using Mobile Phones</td><td class="hrs-cell">16</td><td class="price-cell">$250</td></tr>
+          <tr><td>Photography Lighting Techniques</td><td class="hrs-cell">20</td><td class="price-cell">$350</td></tr>
+          <tr><td>Adobe Lightroom for Photographers</td><td class="hrs-cell">18</td><td class="price-cell">$350</td></tr>
+          <tr><td>Aerial Videography Using Drones</td><td class="hrs-cell">8</td><td class="price-cell">$450</td></tr>
+          <tr><td>Astrophotography</td><td class="hrs-cell">6</td><td class="price-cell">$250</td></tr>
+          <tr><td>Sports Photography – SCUBA Diving</td><td class="hrs-cell">10</td><td class="price-cell">$200</td></tr>
+          <tr><td>Adventure Photography – The Camel Trail</td><td class="hrs-cell">10</td><td class="price-cell">$200</td></tr>
+        </tbody></table></div></div>
+        <div id="p-adobe" class="tab-panel"><div class="table-wrap"><table class="etc-table"><thead><tr><th>Course</th><th>Hours</th><th>Fee (USD)</th></tr></thead><tbody>
+          <tr><td>Adobe Photoshop – Essentials</td><td class="hrs-cell">24</td><td class="price-cell">$280</td></tr>
+          <tr><td>Adobe Photoshop – Advanced</td><td class="hrs-cell">24</td><td class="price-cell">$300</td></tr>
+          <tr><td>Adobe Premiere – Video Editing + AI</td><td class="hrs-cell">20</td><td class="price-cell">$450</td></tr>
+          <tr><td>Adobe After Effects – Essentials + AI</td><td class="hrs-cell">20</td><td class="price-cell">$450</td></tr>
+          <tr><td>Adobe After Effects – Advanced + AI</td><td class="hrs-cell">20</td><td class="price-cell">$450</td></tr>
+          <tr><td>Adobe Audition</td><td class="hrs-cell">20</td><td class="price-cell">$350</td></tr>
+          <tr><td>Adobe Illustrator – Essentials</td><td class="hrs-cell">24</td><td class="price-cell">$250</td></tr>
+          <tr><td>Adobe InDesign – Essentials</td><td class="hrs-cell">20</td><td class="price-cell">$300</td></tr>
+          <tr><td>Adobe InDesign – Advanced</td><td class="hrs-cell">18</td><td class="price-cell">$350</td></tr>
+        </tbody></table></div></div>
+        <div id="p-anim3" class="tab-panel"><div class="table-wrap"><table class="etc-table"><thead><tr><th>Course</th><th>Hours</th><th>Fee (USD)</th></tr></thead><tbody>
+          <tr><td>ZBrush – Essentials</td><td class="hrs-cell">24</td><td class="price-cell">$450</td></tr>
+          <tr><td>ZBrush – Advanced</td><td class="hrs-cell">24</td><td class="price-cell">$450</td></tr>
+          <tr><td>Unreal Engine for Game Design</td><td class="hrs-cell">20</td><td class="price-cell">$600</td></tr>
+          <tr><td>Cinema 4D – Modeling, Texturing &amp; Animation</td><td class="hrs-cell">35</td><td class="price-cell">$600</td></tr>
+          <tr><td>Cinema 4D – Particles</td><td class="hrs-cell">30</td><td class="price-cell">$600</td></tr>
+        </tbody></table></div></div>
+        <div id="p-layout" class="tab-panel"><div class="table-wrap"><table class="etc-table"><thead><tr><th>Course</th><th>Hours</th><th>Fee (USD)</th></tr></thead><tbody>
+          <tr><td>Designing Infographics for Businesses</td><td class="hrs-cell">16</td><td class="price-cell">$300</td></tr>
+          <tr><td>Adobe InDesign – Essentials</td><td class="hrs-cell">20</td><td class="price-cell">$300</td></tr>
+          <tr><td>Press and Printing Techniques</td><td class="hrs-cell">20</td><td class="price-cell">$450</td></tr>
+          <tr><td>Graphic Design</td><td class="hrs-cell">45</td><td class="price-cell">$350</td></tr>
+          <tr><td>Branding</td><td class="hrs-cell">30</td><td class="price-cell">$300</td></tr>
+          <tr><td>Copywriting</td><td class="hrs-cell">30</td><td class="price-cell">$300</td></tr>
+          <tr><td>Drawing Basics</td><td class="hrs-cell">24</td><td class="price-cell">$250</td></tr>
+        </tbody></table></div></div>
+        <div id="p-webdesign" class="tab-panel"><div class="table-wrap"><table class="etc-table"><thead><tr><th>Course</th><th>Hours</th><th>Fee (USD)</th></tr></thead><tbody>
+          <tr><td>HTML5, CSS3, and SCSS</td><td class="hrs-cell">30</td><td class="price-cell">$300</td></tr>
+          <tr><td>Adobe Animate</td><td class="hrs-cell">20</td><td class="price-cell">$350</td></tr>
+          <tr><td>Adobe XD and Figma – Web Design</td><td class="hrs-cell">30</td><td class="price-cell">$450</td></tr>
+        </tbody></table></div></div>
+        <div id="p-fashion" class="tab-panel"><div class="table-wrap"><table class="etc-table"><thead><tr><th>Course</th><th>Hours</th><th>Fee (USD)</th></tr></thead><tbody>
+          <tr><td>Adobe Photoshop – Essentials</td><td class="hrs-cell">24</td><td class="price-cell">$280</td></tr>
+          <tr><td>Adobe Illustrator – Essentials</td><td class="hrs-cell">24</td><td class="price-cell">$250</td></tr>
+          <tr><td>Fashion Design Using Photoshop &amp; Illustrator</td><td class="hrs-cell">20</td><td class="price-cell">$350</td></tr>
+        </tbody></table></div></div>
+      </div>
+
+      <div id="dept-industrial" class="tab-panel rv">
+        <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:1rem;color:#0a1e35">Industrial Design</h3>
+        <div class="table-wrap"><table class="etc-table"><thead><tr><th>Course</th><th>Hours</th><th>Fee (USD)</th></tr></thead><tbody>
+          <tr><td>Autodesk Inventor – Essentials</td><td class="hrs-cell">30</td><td class="price-cell">$600</td></tr>
+          <tr><td>Autodesk Inventor – Advanced</td><td class="hrs-cell">30</td><td class="price-cell">$600</td></tr>
+          <tr><td>SolidWorks – Essentials</td><td class="hrs-cell">30</td><td class="price-cell">$450</td></tr>
+          <tr><td>SolidWorks – Advanced</td><td class="hrs-cell">30</td><td class="price-cell">$450</td></tr>
+          <tr><td>AutoCAD Plant 3D – Piping and Instrumentation</td><td class="hrs-cell">20</td><td class="price-cell">$1,200</td></tr>
+          <tr><td>Siemens NX12</td><td class="hrs-cell">30</td><td class="price-cell">$600</td></tr>
+        </tbody></table></div>
+      </div>
+
+      <div id="dept-coding" class="tab-panel rv">
+        <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:1rem;color:#0a1e35">Coding — Python / Web Development</h3>
+        <div class="tab-bar">
+          <button class="tab on" data-tab="p-python">Python</button>
+          <button class="tab" data-tab="p-webdev2">Web Development</button>
+        </div>
+        <div id="p-python" class="tab-panel show"><div class="table-wrap"><table class="etc-table"><thead><tr><th>Course</th><th>Hours</th><th>Fee (USD)</th></tr></thead><tbody>
+          <tr><td>Python 1 – Fundamentals</td><td class="hrs-cell">30</td><td class="price-cell">$330</td></tr>
+          <tr><td>Python 2 – Data Science, OOPs &amp; UI</td><td class="hrs-cell">36</td><td class="price-cell">$400</td></tr>
+          <tr><td>Python 3 – AI</td><td class="hrs-cell">30</td><td class="price-cell">$600</td></tr>
+          <tr><td>Python 4 – Automation &amp; Data Integration</td><td class="hrs-cell">24</td><td class="price-cell">$600</td></tr>
+          <tr><td>Python 5 – Relational Databases into the Cloud</td><td class="hrs-cell">24</td><td class="price-cell">$650</td></tr>
+          <tr><td>Python 6 – Cybersecurity Fundamentals</td><td class="hrs-cell">40</td><td class="price-cell">$750</td></tr>
+        </tbody></table></div></div>
+        <div id="p-webdev2" class="tab-panel"><div class="table-wrap"><table class="etc-table"><thead><tr><th>Course</th><th>Hours</th><th>Fee (USD)</th></tr></thead><tbody>
+          <tr><td>HTML5, CSS3, SCSS</td><td class="hrs-cell">30</td><td class="price-cell">$300</td></tr>
+          <tr><td>CSS 3.0 Essentials</td><td class="hrs-cell">12</td><td class="price-cell">$250</td></tr>
+          <tr><td>Javascript DOM</td><td class="hrs-cell">12</td><td class="price-cell">$350</td></tr>
+          <tr><td>jQuery Essentials</td><td class="hrs-cell">12</td><td class="price-cell">$350</td></tr>
+          <tr><td>MySQL – Essentials</td><td class="hrs-cell">10</td><td class="price-cell">$250</td></tr>
+          <tr><td>PHP with MySQL – Essentials</td><td class="hrs-cell">30</td><td class="price-cell">$600</td></tr>
+          <tr><td>PHP with MySQL – Advanced</td><td class="hrs-cell">30</td><td class="price-cell">$600</td></tr>
+          <tr><td>Web Security</td><td class="hrs-cell">24</td><td class="price-cell">$750</td></tr>
+        </tbody></table></div></div>
+      </div>
+
+      <div id="dept-ai" class="tab-panel rv">
+        <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:1rem;color:#0a1e35">Artificial Intelligence</h3>
+        <div class="table-wrap"><table class="etc-table"><thead><tr><th>Course</th><th>Hours</th><th>Fee (USD)</th></tr></thead><tbody>
+          <tr><td>AI for Social Media Production</td><td class="hrs-cell">18</td><td class="price-cell">$350</td></tr>
+          <tr><td>AI for Business Professionals</td><td class="hrs-cell">20</td><td class="price-cell">$450</td></tr>
+          <tr><td>AI for Image Creators</td><td class="hrs-cell">16</td><td class="price-cell">$350</td></tr>
+          <tr><td>AI for Teenagers</td><td class="hrs-cell">16</td><td class="price-cell">$300</td></tr>
+          <tr><td>Render with AI</td><td class="hrs-cell">16</td><td class="price-cell">$300</td></tr>
+          <tr><td>AI for Revit Users (BIM)</td><td class="hrs-cell">15</td><td class="price-cell">$390</td></tr>
+          <tr><td>AI for AutoCAD Users</td><td class="hrs-cell">15</td><td class="price-cell">$330</td></tr>
+          <tr><td>AI for 3DS Max Users</td><td class="hrs-cell">30</td><td class="price-cell">$600</td></tr>
+          <tr><td>Python 3 – AI</td><td class="hrs-cell">30</td><td class="price-cell">$600</td></tr>
+          <tr><td>Robotics</td><td class="hrs-cell">—</td><td class="price-cell">Contact us</td></tr>
+        </tbody></table></div>
+      </div>
+
+      <div id="dept-mktg" class="tab-panel rv">
+        <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:1rem;color:#0a1e35">Marketing</h3>
+        <div class="table-wrap"><table class="etc-table"><thead><tr><th>Course</th><th>Hours</th><th>Fee (USD)</th></tr></thead><tbody>
+          <tr><td>Digital Marketing</td><td class="hrs-cell">20</td><td class="price-cell">$300</td></tr>
+          <tr><td>SEO Optimization</td><td class="hrs-cell">16</td><td class="price-cell">$350</td></tr>
+        </tbody></table></div>
+      </div>
+
+      <div id="dept-office" class="tab-panel rv">
+        <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:1rem;color:#0a1e35">Office &amp; Project Management</h3>
+        <div class="table-wrap"><table class="etc-table"><thead><tr><th>Course</th><th>Hours</th><th>Fee (USD)</th></tr></thead><tbody>
+          <tr><td>MS Excel Beginner to Advanced</td><td class="hrs-cell">20</td><td class="price-cell">$350</td></tr>
+          <tr><td>MS PowerPoint</td><td class="hrs-cell">8</td><td class="price-cell">$150</td></tr>
+          <tr><td>Primavera P6 for Beginners</td><td class="hrs-cell">20</td><td class="price-cell">$350</td></tr>
+          <tr><td>Primavera P6 for Engineers</td><td class="hrs-cell">20</td><td class="price-cell">$450</td></tr>
+          <tr><td>Quantity Surveying and Estimation</td><td class="hrs-cell">30</td><td class="price-cell">$600</td></tr>
+          <tr><td>Synchro 4D – Construction Management</td><td class="hrs-cell">20</td><td class="price-cell">$400</td></tr>
+        </tbody></table></div>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<footer id="footer">
+  <div class="footer-main">
+    <div class="footer-brand"><img src="../assets/logo.jpeg" alt="ETC" onerror="this.style.display='none'"><p>Lebanon's premier Autodesk &amp; Rhino Authorized Training Center. Founded 2005.</p></div>
+    <div class="footer-col"><h4>Pages</h4><a href="../index.html">Home</a><a href="about.html">About</a><a href="courses.html">Courses</a><a href="schedule.html">Schedule</a><a href="kids.html">Kids</a><a href="contact.html">Contact</a></div>
+    <div class="footer-col"><h4>Contact</h4><a href="tel:+9613331741">+961 3 331741</a><a href="mailto:info@etc-cc.com">info@etc-cc.com</a><a href="https://wa.me/9613331741">WhatsApp</a></div>
+    <div class="footer-col"><h4>Resources</h4><a href="https://etc-cc.com/etc/waitinglist" target="_blank">Waiting List</a><a href="https://etc-cc.com/etc/faq" target="_blank">FAQ</a></div>
+  </div>
+  <div class="footer-bottom"><p>© 2026 Expertise Training Center · All Rights Reserved</p></div>
+</footer>
+<script src="../js/main.js"></script>
+<script>
+function showDept(id, card) {
+  document.querySelectorAll('.tab-panel[id^="dept-"]').forEach(p => p.classList.remove('show'));
+  document.querySelectorAll('.dept-hero-card').forEach(c => c.classList.remove('active'));
+  document.getElementById('dept-' + id).classList.add('show');
+  card.classList.add('active');
+}
+// Init nested tabs for each dept panel
+document.querySelectorAll('.tab-panel[id^="dept-"]').forEach(deptPanel => {
+  initTabs('#' + deptPanel.id + ' .tab-bar', '#' + deptPanel.id + ' > .tab-panel');
+});
+</script>
+</body>
+</html>

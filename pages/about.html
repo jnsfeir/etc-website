@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>About ETC — Expertise Training Center</title>
+<link rel="stylesheet" href="../css/styles.css">
+<style>
+.about-split { display: grid; grid-template-columns: 400px 1fr; gap: 5rem; align-items: start; }
+.photo-wrap { position: relative; }
+.photo-frame { position: relative; }
+.photo-frame::before { content:''; position:absolute; top:-12px; left:-12px; right:12px; bottom:12px; border:2px solid var(--blue); border-radius:var(--r); z-index:0; }
+.photo-frame img { position:relative; z-index:1; width:100%; height:460px; object-fit:cover; object-position:top; border-radius:var(--r); display:block; }
+.founder-badge { position:absolute; bottom:-16px; right:-16px; z-index:2; background:var(--gold2); color:var(--navy); font-weight:800; font-size:0.82rem; padding:0.85rem 1.1rem; border-radius:10px; text-align:center; line-height:1.3; box-shadow:0 8px 24px rgba(240,172,32,0.35); }
+
+.timeline { border-left: 2px solid var(--border2); padding-left: 1.8rem; margin-top: 2rem; display:flex; flex-direction:column; gap:1.5rem; }
+.tl-item { position:relative; }
+.tl-item::before { content:''; position:absolute; left:-2.1rem; top:5px; width:10px; height:10px; border-radius:50%; background:var(--blue); border:2px solid var(--white); box-shadow:0 0 0 3px var(--blue); }
+.tl-year { font-size:0.72rem; font-weight:700; color:var(--blue2); letter-spacing:0.1em; margin-bottom:3px; }
+.tl-item p { font-size:0.85rem; color:#2a3f58; line-height:1.65; }
+
+.corp-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:2rem; }
+.corp-card { background:var(--off); border:1px solid var(--border2); border-radius:var(--r); padding:1.2rem; text-align:center; }
+.corp-card h4 { font-size:0.82rem; font-weight:700; color:#0a1e35; margin-bottom:3px; }
+.corp-card p { font-size:0.75rem; color:var(--muted); }
+
+.instructor-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-top:2rem; }
+.inst-card { background:#fff; border:1px solid var(--border2); border-radius:var(--r); padding:1.2rem; text-align:center; box-shadow:var(--shadow); }
+.inst-avatar { width:52px; height:52px; border-radius:50%; background:linear-gradient(135deg,var(--blue),var(--blue2)); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:1rem; color:#fff; margin:0 auto 0.8rem; }
+.inst-card h4 { font-size:0.82rem; font-weight:700; color:#0a1e35; }
+.inst-card p { font-size:0.73rem; color:var(--muted); margin-top:2px; }
+
+@media(max-width:900px){ .about-split{grid-template-columns:1fr;} .photo-frame img{height:320px;} .corp-grid{grid-template-columns:1fr 1fr;} .instructor-grid{grid-template-columns:1fr 1fr;} }
+@media(max-width:540px){ .corp-grid{grid-template-columns:1fr;} .instructor-grid{grid-template-columns:1fr 1fr;} }
+</style>
+</head>
+<body>
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><img src="../assets/logo.jpeg" alt="ETC" onerror="this.style.display='none'"><span>ETC <em>Lebanon</em></span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="schedule.html">Schedule</a></li>
+      <li><a href="kids.html">Kids</a></li>
+      <li><a href="certificates.html">Certificates</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+    </ul>
+    <button class="burger" onclick="toggleMob()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob" id="mob">
+  <button class="mob-close" onclick="closeMob()">✕</button>
+  <a href="../index.html" onclick="closeMob()">Home</a>
+  <a href="about.html" onclick="closeMob()">About</a>
+  <a href="courses.html" onclick="closeMob()">Courses</a>
+  <a href="schedule.html" onclick="closeMob()">Schedule</a>
+  <a href="kids.html" onclick="closeMob()">Kids</a>
+  <a href="certificates.html" onclick="closeMob()">Certificates</a>
+  <a href="contact.html" onclick="closeMob()">Contact</a>
+</div>
+
+<div class="page-wrap">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb"><a href="../index.html">Home</a><span>About Us</span></div>
+      <h1>About <em>Expertise Training Center</em></h1>
+      <p>Founded in 2005 and built on over two decades of hands-on technical education in Lebanon and beyond.</p>
+    </div>
+  </div>
+
+  <!-- FOUNDER -->
+  <section style="background:var(--white)">
+    <div class="wrap">
+      <div class="about-split">
+        <div class="photo-wrap rv">
+          <div class="photo-frame">
+            <img src="https://etc-cc.com/img/items/naji.webp" alt="Naji John Sfeir" onerror="this.style.background='var(--off)'">
+            <div class="founder-badge">Est.<br>2005</div>
+          </div>
+        </div>
+        <div class="rv" style="transition-delay:.1s">
+          <div class="tag-label">Our Founder</div>
+          <h2 class="h2">Naji John <em>Sfeir</em></h2>
+          <div class="pills" style="margin:1.2rem 0 1.5rem">
+            <span class="pill">Autodesk Certified</span>
+            <span class="pill">Adobe Certified</span>
+            <span class="pill">V-Ray Certified</span>
+            <span class="pill">Ohio State University</span>
+            <span class="pill">Former ALBA / AUB / LAU / NDU Professor</span>
+          </div>
+          <p style="font-size:.97rem;color:#3a5a78;line-height:1.85;margin-bottom:1rem">
+            Naji John Sfeir holds an Industrial & Systems Engineering degree from The Ohio State University and spent years as a professor at Lebanon's leading universities — ALBA, AUB, LAU, and NDU. In February 2005, he founded ETC with a mission to deliver world-class technical training in the region.
+          </p>
+          <p style="font-size:.97rem;color:#3a5a78;line-height:1.85;margin-bottom:1.5rem">
+            Beyond education, Naji is a certified trainer, entrepreneur, photographer, filmmaker, and SCUBA instructor. That breadth defines ETC's culture of well-rounded, deeply practical learning.
+          </p>
+          <p style="font-size:.97rem;color:#3a5a78;line-height:1.85">
+            ETC is officially licensed by Lebanon's Ministry of Education (DGTVE), Autodesk and Rhino Authorized, and Adobe Certified. Students completing structured programs receive government-attested certificates. First session is always free — no commitment required.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section style="background:var(--off)">
+    <div class="wrap">
+      <div class="sh rv"><div class="tag-label">Project History</div><h2 class="h2">Notable <em>Real-World Work</em></h2></div>
+      <div class="timeline rv">
+        <div class="tl-item"><div class="tl-year">2014</div><p><strong>Bahrain Airport Extension</strong> — BIM management for ETEC. Full-discipline Revit modeling for one of the Gulf's largest infrastructure projects.</p></div>
+        <div class="tl-item"><div class="tl-year">2015</div><p><strong>ABC Mall Verdun, Beirut</strong> — In partnership with MAN Enterprise. LOD 500 modeling covering architecture, structure, electrical, and mechanical systems.</p></div>
+        <div class="tl-item"><div class="tl-year">2017</div><p><strong>USJ University Medical Building</strong> — Full-discipline BIM modeling for Saint Joseph University's medical faculty complex in Beirut.</p></div>
+        <div class="tl-item"><div class="tl-year">2018</div><p><strong>U.S. Embassy Compound, Lebanon</strong> — A $1 billion project led by BL Harbert (USA). Architectural and reinforcement BIM. 10 ETC-trained graduates were hired directly onto the project.</p></div>
+        <div class="tl-item"><div class="tl-year">2020</div><p><strong>King Faisal Academy, Saudi Arabia</strong> — Full-discipline BIM management for client ACE. 32 ETC graduates were employed on this project.</p></div>
+        <div class="tl-item"><div class="tl-year">2023</div><p><strong>Cameroon Central Bank</strong> — BIM management project for Rafik Khoury & Partners, demonstrating ETC's reach across three continents.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORPORATE CLIENTS -->
+  <section style="background:var(--white)">
+    <div class="wrap">
+      <div class="sh rv"><div class="tag-label">Corporate Clients</div><h2 class="h2">Companies That <em>Trust ETC Graduates</em></h2></div>
+      <div class="corp-grid rv">
+        <div class="corp-card"><h4>BL Harbert International</h4><p>USA — Embassy projects</p></div>
+        <div class="corp-card"><h4>MAN Enterprise</h4><p>Lebanon — ABC Mall Verdun</p></div>
+        <div class="corp-card"><h4>Dar Al Handasah</h4><p>Regional engineering firm</p></div>
+        <div class="corp-card"><h4>Khatib &amp; Alami</h4><p>Engineering consultants</p></div>
+        <div class="corp-card"><h4>ACE</h4><p>Saudi Arabia — King Faisal Academy</p></div>
+        <div class="corp-card"><h4>NESMA &amp; ETEC</h4><p>Bahrain Airport Extension</p></div>
+        <div class="corp-card"><h4>ITB &amp; Al Mabani</h4><p>Regional contractors</p></div>
+        <div class="corp-card"><h4>SABIS International</h4><p>Education sector</p></div>
+        <div class="corp-card"><h4>Rafik Khoury &amp; Partners</h4><p>Cameroon Central Bank</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTRUCTORS -->
+  <section style="background:var(--off)">
+    <div class="wrap">
+      <div class="sh rv"><div class="tag-label">Our Team</div><h2 class="h2">Certified <em>Instructors</em></h2></div>
+      <div class="instructor-grid rv">
+        <div class="inst-card"><div class="inst-avatar">NS</div><h4>Naji Sfeir</h4><p>Director &amp; Lead Instructor</p></div>
+        <div class="inst-card"><div class="inst-avatar">AS</div><h4>Alain Sfeir</h4><p>Python &amp; Coding</p></div>
+        <div class="inst-card"><div class="inst-avatar">CS</div><h4>Celine Sfeir</h4><p>Revit &amp; BIM</p></div>
+        <div class="inst-card"><div class="inst-avatar">MS</div><h4>Mike Sfeir</h4><p>MEP &amp; Engineering</p></div>
+        <div class="inst-card"><div class="inst-avatar">CyS</div><h4>Cynthia Sfeir</h4><p>AutoCAD &amp; Revit</p></div>
+        <div class="inst-card"><div class="inst-avatar">GK</div><h4>Gretta Khoury</h4><p>3DS Max &amp; V-Ray</p></div>
+        <div class="inst-card"><div class="inst-avatar">RA</div><h4>Rany Ammoury</h4><p>Rhino &amp; Design</p></div>
+        <div class="inst-card"><div class="inst-avatar">JB</div><h4>Joseph Bsaibess</h4><p>Civil 3D &amp; UAE Campus</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer id="footer">
+  <div class="footer-main">
+    <div class="footer-brand"><img src="../assets/logo.jpeg" alt="ETC" onerror="this.style.display='none'"><p>Lebanon's premier Autodesk &amp; Rhino Authorized Training Center. Founded 2005.</p></div>
+    <div class="footer-col"><h4>Pages</h4><a href="../index.html">Home</a><a href="about.html">About</a><a href="courses.html">Courses</a><a href="schedule.html">Schedule</a><a href="kids.html">Kids</a><a href="contact.html">Contact</a></div>
+    <div class="footer-col"><h4>Contact</h4><a href="tel:+9613331741">+961 3 331741 (LB)</a><a href="tel:+351910791911">+351 910 791911 (PT)</a><a href="mailto:info@etc-cc.com">info@etc-cc.com</a><a href="https://wa.me/9613331741">WhatsApp</a></div>
+    <div class="footer-col"><h4>Resources</h4><a href="https://etc-cc.com/etc/waitinglist" target="_blank">Waiting List</a><a href="https://etc-cc.com/etc/activeexams" target="_blank">Free Exams</a><a href="https://etc-cc.com/etc/faq" target="_blank">FAQ</a></div>
+  </div>
+  <div class="footer-bottom"><p>© 2026 Expertise Training Center · All Rights Reserved</p></div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

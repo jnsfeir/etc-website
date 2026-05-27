@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ETC for Kids — Training Center Lebanon</title>
+<link rel="stylesheet" href="../css/styles.css">
+<style>
+.kids-split { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
+.kids-img { width:100%; height:400px; object-fit:cover; border-radius:var(--r2); display:block; }
+.kids-feature { display:flex; align-items:flex-start; gap:12px; margin-bottom:1rem; }
+.kf-icon { width:38px; height:38px; border-radius:8px; background:linear-gradient(135deg,#f59e0b,#fbbf24); display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; }
+.kf-text h4 { font-size:0.88rem; font-weight:700; color:#0a1e35; margin-bottom:2px; }
+.kf-text p { font-size:0.8rem; color:var(--muted); line-height:1.6; }
+.age-badges { display:flex; gap:8px; flex-wrap:wrap; margin:1.5rem 0; }
+.age-badge { background:#fffbeb; border:1.5px solid #fcd34d; color:#b45309; font-size:0.78rem; font-weight:700; padding:0.35rem 0.9rem; border-radius:100px; }
+.price-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+.price-card { background:#fff; border:1px solid var(--border2); border-radius:var(--r); padding:1.4rem; box-shadow:var(--shadow); transition:transform var(--t), box-shadow var(--t), border-color var(--t); }
+.price-card:hover { transform:translateY(-4px); box-shadow:var(--shadow2); border-color:#fbbf24; }
+.price-card .course-name { font-size:0.88rem; font-weight:700; color:#0a1e35; margin-bottom:0.5rem; }
+.price-card .course-hrs { font-size:0.78rem; color:var(--muted); margin-bottom:0.8rem; }
+.price-card .course-price { font-size:1.3rem; font-weight:800; color:#b45309; }
+.price-card .enroll-btn { display:block; margin-top:1rem; text-align:center; background:#f59e0b; color:var(--navy); font-weight:700; font-size:0.78rem; padding:0.45rem 0; border-radius:6px; transition:background var(--t); }
+.price-card .enroll-btn:hover { background:#fbbf24; }
+@media(max-width:900px){ .kids-split{grid-template-columns:1fr;} .price-grid{grid-template-columns:1fr 1fr;} }
+@media(max-width:520px){ .price-grid{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><img src="../assets/logo.jpeg" alt="ETC" onerror="this.style.display='none'"><span>ETC <em>Lebanon</em></span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li><li><a href="about.html">About</a></li>
+      <li><a href="courses.html">Courses</a></li><li><a href="schedule.html">Schedule</a></li>
+      <li><a href="kids.html" class="active">Kids</a></li><li><a href="certificates.html">Certificates</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+    </ul>
+    <button class="burger" onclick="toggleMob()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob" id="mob">
+  <button class="mob-close" onclick="closeMob()">✕</button>
+  <a href="../index.html" onclick="closeMob()">Home</a><a href="about.html" onclick="closeMob()">About</a><a href="courses.html" onclick="closeMob()">Courses</a><a href="schedule.html" onclick="closeMob()">Schedule</a><a href="kids.html" onclick="closeMob()">Kids</a><a href="certificates.html" onclick="closeMob()">Certificates</a><a href="contact.html" onclick="closeMob()">Contact</a>
+</div>
+
+<div class="page-wrap">
+  <div class="page-hero" style="background:linear-gradient(135deg,#7c2d12,#b45309)">
+    <div class="page-hero-inner">
+      <div class="breadcrumb"><a href="../index.html" style="color:#fcd34d">Home</a><span style="color:#fcd34d">ETC for Kids</span></div>
+      <h1 style="color:#fff">ETC for <em style="color:#fcd34d">Kids</em></h1>
+      <p style="color:#fed7aa">Inspiring the next generation through coding, CAD design, digital art, and creative technology.</p>
+    </div>
+  </div>
+
+  <section style="background:var(--white)">
+    <div class="wrap">
+      <div class="kids-split">
+        <div class="rv">
+          <img class="kids-img" src="https://etc-cc.com/img/items/ETCforKids.webp" alt="ETC for Kids" onerror="this.style.background='#fef9c3'">
+        </div>
+        <div class="rv" style="transition-delay:.1s">
+          <div class="tag-label" style="color:#b45309">For the Next Generation</div>
+          <h2 class="h2">Future-Ready <em>Skills</em> Start Here</h2>
+          <p style="font-size:.97rem;color:#5a738a;line-height:1.85;margin:1rem 0 1.5rem">Since 2005, ETC has trained parents in engineering, architecture, and design. Now we're ready to inspire their children. Our kids programs are designed to build confidence, creativity, and technical skills in a structured, fun environment.</p>
+          <div class="age-badges">
+            <span class="age-badge">Ages 8 – 12</span>
+            <span class="age-badge">Ages 12 – 16</span>
+            <span class="age-badge">Ages 16 – 18</span>
+            <span class="age-badge">Weekend Programs</span>
+            <span class="age-badge">Summer Camps</span>
+          </div>
+          <div class="kids-feature"><div class="kf-icon">🐍</div><div class="kf-text"><h4>Python Coding</h4><p>From beginner fundamentals to data science and AI — a full 6-level Python track.</p></div></div>
+          <div class="kids-feature"><div class="kf-icon">📐</div><div class="kf-text"><h4>CAD &amp; 3D Design</h4><p>AutoCAD 2D drafting and Rhino 3D modeling — the tools engineers use every day.</p></div></div>
+          <div class="kids-feature"><div class="kf-icon">🎨</div><div class="kf-text"><h4>Digital Art &amp; Video</h4><p>Adobe Photoshop, Illustrator, and Premiere — creative tools for the digital age.</p></div></div>
+          <div class="kids-feature"><div class="kf-icon">📸</div><div class="kf-text"><h4>Photography</h4><p>Camera fundamentals, lighting, and composition — taught by an award-winning photographer.</p></div></div>
+          <div style="margin-top:2rem;display:flex;gap:0.9rem;flex-wrap:wrap">
+            <a href="https://wa.me/9613331741" target="_blank" class="btn btn-gold">WhatsApp to Enroll</a>
+            <a href="contact.html" class="btn btn-outline-blue">Ask a Question</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--off)">
+    <div class="wrap">
+      <div class="sh rv sh-center"><div class="tag-label" style="color:#b45309;display:block">Pricing</div><h2 class="h2">Kids Course <em>Fees</em></h2></div>
+      <div class="price-grid rv">
+        <div class="price-card"><div class="course-name">Python for Kids</div><div class="course-hrs">15 hours — Intro level</div><div class="course-price">$150</div><a href="https://wa.me/9613331741" target="_blank" class="enroll-btn">Enroll via WhatsApp</a></div>
+        <div class="price-card"><div class="course-name">Python 1 – Full Course</div><div class="course-hrs">30 hours — Fundamentals</div><div class="course-price">$300</div><a href="https://wa.me/9613331741" target="_blank" class="enroll-btn">Enroll via WhatsApp</a></div>
+        <div class="price-card"><div class="course-name">Python 2 – Advanced</div><div class="course-hrs">30 hours — Data Science &amp; OOPs</div><div class="course-price">$350</div><a href="https://wa.me/9613331741" target="_blank" class="enroll-btn">Enroll via WhatsApp</a></div>
+        <div class="price-card"><div class="course-name">AutoCAD for Kids</div><div class="course-hrs">15 hours — Intro level</div><div class="course-price">$150</div><a href="https://wa.me/9613331741" target="_blank" class="enroll-btn">Enroll via WhatsApp</a></div>
+        <div class="price-card"><div class="course-name">AutoCAD 2D – Full Course</div><div class="course-hrs">30 hours</div><div class="course-price">$250</div><a href="https://wa.me/9613331741" target="_blank" class="enroll-btn">Enroll via WhatsApp</a></div>
+        <div class="price-card"><div class="course-name">Rhino for Kids</div><div class="course-hrs">15 hours — Intro 3D</div><div class="course-price">$200</div><a href="https://wa.me/9613331741" target="_blank" class="enroll-btn">Enroll via WhatsApp</a></div>
+        <div class="price-card"><div class="course-name">Rhino 1 – Full Course</div><div class="course-hrs">30 hours</div><div class="course-price">$350</div><a href="https://wa.me/9613331741" target="_blank" class="enroll-btn">Enroll via WhatsApp</a></div>
+        <div class="price-card"><div class="course-name">Adobe Photoshop</div><div class="course-hrs">24 hours</div><div class="course-price">$250</div><a href="https://wa.me/9613331741" target="_blank" class="enroll-btn">Enroll via WhatsApp</a></div>
+        <div class="price-card"><div class="course-name">Adobe Illustrator</div><div class="course-hrs">24 hours</div><div class="course-price">$250</div><a href="https://wa.me/9613331741" target="_blank" class="enroll-btn">Enroll via WhatsApp</a></div>
+        <div class="price-card"><div class="course-name">Adobe Premiere for Kids</div><div class="course-hrs">12 hours — Intro video</div><div class="course-price">$150</div><a href="https://wa.me/9613331741" target="_blank" class="enroll-btn">Enroll via WhatsApp</a></div>
+        <div class="price-card"><div class="course-name">Adobe Premiere – Full</div><div class="course-hrs">24 hours</div><div class="course-price">$350</div><a href="https://wa.me/9613331741" target="_blank" class="enroll-btn">Enroll via WhatsApp</a></div>
+        <div class="price-card"><div class="course-name">Photography Fundamentals</div><div class="course-hrs">18 hours</div><div class="course-price">$350</div><a href="https://wa.me/9613331741" target="_blank" class="enroll-btn">Enroll via WhatsApp</a></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer id="footer">
+  <div class="footer-main">
+    <div class="footer-brand"><img src="../assets/logo.jpeg" alt="ETC" onerror="this.style.display='none'"><p>Lebanon's premier Autodesk &amp; Rhino Authorized Training Center. Founded 2005.</p></div>
+    <div class="footer-col"><h4>Pages</h4><a href="../index.html">Home</a><a href="about.html">About</a><a href="courses.html">Courses</a><a href="schedule.html">Schedule</a><a href="kids.html">Kids</a><a href="contact.html">Contact</a></div>
+    <div class="footer-col"><h4>Contact</h4><a href="tel:+9613331741">+961 3 331741</a><a href="mailto:info@etc-cc.com">info@etc-cc.com</a><a href="https://wa.me/9613331741">WhatsApp</a></div>
+    <div class="footer-col"><h4>Resources</h4><a href="https://etc-cc.com/etc/waitinglist" target="_blank">Waiting List</a><a href="https://etc-cc.com/etc/faq" target="_blank">FAQ</a></div>
+  </div>
+  <div class="footer-bottom"><p>© 2026 Expertise Training Center · All Rights Reserved</p></div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Certificates — ETC Training Center</title>
+<link rel="stylesheet" href="../css/styles.css">
+<style>
+.rm-section { margin-bottom: 3.5rem; }
+.rm-section-label { font-size:0.72rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--muted); margin-bottom:1.2rem; display:flex; align-items:center; gap:10px; }
+.rm-section-label::after { content:''; flex:1; height:1px; background:var(--border2); }
+.rm-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:1rem; }
+.rm-card { border:1px solid var(--border2); border-radius:var(--r); overflow:hidden; background:#fff; box-shadow:var(--shadow); transition:transform var(--t), box-shadow var(--t), border-color var(--t); }
+.rm-card:hover { transform:translateY(-4px); box-shadow:var(--shadow2); border-color:var(--blue2); }
+.rm-img { width:100%; height:110px; object-fit:cover; display:block; }
+.rm-body { padding:0.9rem; }
+.rm-body h4 { font-size:0.8rem; font-weight:700; color:#0a1e35; margin-bottom:4px; }
+.rm-dur { font-size:0.7rem; color:var(--blue); font-weight:600; }
+.accred-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; }
+.accred-card { background:#fff; border:1.5px solid var(--border2); border-radius:var(--r2); padding:2rem; text-align:center; box-shadow:var(--shadow); transition:border-color var(--t), transform var(--t); }
+.accred-card:hover { border-color:var(--blue2); transform:translateY(-3px); }
+.accred-card span { font-size:2.5rem; display:block; margin-bottom:0.8rem; }
+.accred-card h3 { font-size:0.95rem; font-weight:700; color:#0a1e35; margin-bottom:0.4rem; }
+.accred-card p { font-size:0.82rem; color:var(--muted); line-height:1.65; }
+@media(max-width:1000px){ .rm-grid{grid-template-columns:repeat(4,1fr);} }
+@media(max-width:760px){ .rm-grid{grid-template-columns:repeat(3,1fr);} .accred-grid{grid-template-columns:1fr;} }
+@media(max-width:500px){ .rm-grid{grid-template-columns:repeat(2,1fr);} }
+</style>
+</head>
+<body>
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><img src="../assets/logo.jpeg" alt="ETC" onerror="this.style.display='none'"><span>ETC <em>Lebanon</em></span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li><li><a href="about.html">About</a></li>
+      <li><a href="courses.html">Courses</a></li><li><a href="schedule.html">Schedule</a></li>
+      <li><a href="kids.html">Kids</a></li><li><a href="certificates.html" class="active">Certificates</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+    </ul>
+    <button class="burger" onclick="toggleMob()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob" id="mob">
+  <button class="mob-close" onclick="closeMob()">✕</button>
+  <a href="../index.html" onclick="closeMob()">Home</a><a href="about.html" onclick="closeMob()">About</a><a href="courses.html" onclick="closeMob()">Courses</a><a href="schedule.html" onclick="closeMob()">Schedule</a><a href="kids.html" onclick="closeMob()">Kids</a><a href="certificates.html" onclick="closeMob()">Certificates</a><a href="contact.html" onclick="closeMob()">Contact</a>
+</div>
+
+<div class="page-wrap">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb"><a href="../index.html">Home</a><span>Certificates</span></div>
+      <h1>Career <em>Roadmaps</em> &amp; Certificates</h1>
+      <p>Structured multi-course programs leading to government-attested certificates. Pending final DGTVE approval.</p>
+    </div>
+  </div>
+
+  <!-- ACCREDITATIONS -->
+  <section style="background:var(--off)">
+    <div class="wrap">
+      <div class="sh rv sh-center"><div class="tag-label" style="display:block">Accreditations</div><h2 class="h2">Globally <em>Recognized</em> Credentials</h2></div>
+      <div class="accred-grid rv">
+        <div class="accred-card"><span>🔧</span><h3>Autodesk Authorized Training Center</h3><p>Issue official Autodesk certification exams for AutoCAD, Revit, 3DS Max, Civil 3D, and more.</p></div>
+        <div class="accred-card"><span>🦏</span><h3>McNeel Rhino Authorized Partner</h3><p>Official Rhino 3D training and certification. ETC is listed on Rhino's official partner directory.</p></div>
+        <div class="accred-card"><span>🏛️</span><h3>Lebanon DGTVE — Ministry of Education</h3><p>Officially licensed under Lebanon's Directorate of Vocational and Technical Education. Government-attested multi-course certificates available.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAPS -->
+  <section style="background:var(--white)">
+    <div class="wrap">
+      <div class="sh rv"><div class="tag-label">Certificate Programs</div><h2 class="h2">Choose Your <em>Career Track</em></h2><p class="lead">Complete the required courses in each track to earn an ETC Certificate of Completion, eligible for government attestation through the DGTVE.</p></div>
+
+      <div class="rm-section rv">
+        <div class="rm-section-label">Engineering &amp; BIM</div>
+        <div class="rm-grid">
+          <div class="rm-card"><img class="rm-img" src="https://etc-cc.com/img/roadmap/RevitArchitecture.webp" alt="Revit Architecture" loading="lazy"><div class="rm-body"><h4>Revit Architecture</h4><div class="rm-dur">3 / 6 / 9 months</div></div></div>
+          <div class="rm-card"><img class="rm-img" src="https://etc-cc.com/img/roadmap/RevitStructure.webp" alt="Revit Structure" loading="lazy"><div class="rm-body"><h4>Revit Structure</h4><div class="rm-dur">3 / 6 / 9 months</div></div></div>
+          <div class="rm-card"><img class="rm-img" src="https://etc-cc.com/img/roadmap/RevitMEP.webp" alt="Revit MEP" loading="lazy"><div class="rm-body"><h4>Revit MEP</h4><div class="rm-dur">3 / 6 / 9 months</div></div></div>
+          <div class="rm-card"><img class="rm-img" src="https://etc-cc.com/img/roadmap/Infraworks.webp" alt="Civil 3D" loading="lazy"><div class="rm-body"><h4>Civil 3D</h4><div class="rm-dur">3 / 6 months</div></div></div>
+          <div class="rm-card"><img class="rm-img" src="https://etc-cc.com/img/roadmap/etabs.webp" alt="ETABS" loading="lazy"><div class="rm-body"><h4>SAFE &amp; ETABS</h4><div class="rm-dur">3 months</div></div></div>
+          <div class="rm-card"><img class="rm-img" src="https://etc-cc.com/img/roadmap/survey.webp" alt="Surveying" loading="lazy"><div class="rm-body"><h4>Digital Surveying</h4><div class="rm-dur">9 months</div></div></div>
+          <div class="rm-card"><img class="rm-img" src="https://etc-cc.com/img/roadmap/ProjectManagement.webp" alt="Primavera" loading="lazy"><div class="rm-body"><h4>Primavera P6</h4><div class="rm-dur">3 months</div></div></div>
+          <div class="rm-card"><img class="rm-img" src="https://etc-cc.com/img/roadmap/bimmanager.webp" alt="BIM Manager" loading="lazy"><div class="rm-body"><h4>BIM Manager</h4><div class="rm-dur">9 months</div></div></div>
+        </div>
+      </div>
+
+      <div class="rm-section rv">
+        <div class="rm-section-label">Graphic Design &amp; Media</div>
+        <div class="rm-grid">
+          <div class="rm-card"><img class="rm-img" src="https://etc-cc.com/img/roadmap/photoshopillustrator.webp" alt="Photoshop" loading="lazy"><div class="rm-body"><h4>Photoshop / Illustrator</h4><div class="rm-dur">3 / 6 months</div></div></div>
+          <div class="rm-card"><img class="rm-img" src="https://etc-cc.com/img/roadmap/photography.webp" alt="Photography" loading="lazy"><div class="rm-body"><h4>Photography &amp; Video</h4><div class="rm-dur">3 / 6 / 9 months</div></div></div>
+          <div class="rm-card"><img class="rm-img" src="https://etc-cc.com/img/roadmap/VideoEditing.webp" alt="Video" loading="lazy"><div class="rm-body"><h4>After Effects / Premiere</h4><div class="rm-dur">3 / 6 / 9 months</div></div></div>
+          <div class="rm-card"><img class="rm-img" src="https://etc-cc.com/img/roadmap/WebDesign.webp" alt="Web Design" loading="lazy"><div class="rm-body"><h4>Web Design</h4><div class="rm-dur">3 / 6 months</div></div></div>
+          <div class="rm-card"><img class="rm-img" src="https://etc-cc.com/img/roadmap/painting.webp" alt="Fine Arts" loading="lazy"><div class="rm-body"><h4>Fine Arts</h4><div class="rm-dur">3 months</div></div></div>
+        </div>
+      </div>
+
+      <div class="rm-section rv">
+        <div class="rm-section-label">CAD Design</div>
+        <div class="rm-grid">
+          <div class="rm-card"><img class="rm-img" src="https://etc-cc.com/img/roadmap/CADexpert.webp" alt="AutoCAD" loading="lazy"><div class="rm-body"><h4>AutoCAD Expert</h4><div class="rm-dur">3 / 6 / 9 months</div></div></div>
+          <div class="rm-card"><img class="rm-img" src="https://etc-cc.com/img/roadmap/max.webp" alt="3DS Max" loading="lazy"><div class="rm-body"><h4>3DS Max</h4><div class="rm-dur">3 / 6 months</div></div></div>
+          <div class="rm-card"><img class="rm-img" src="https://etc-cc.com/img/roadmap/rhino.webp" alt="Rhino" loading="lazy"><div class="rm-body"><h4>Rhino Modeling</h4><div class="rm-dur">3 / 6 months</div></div></div>
+          <div class="rm-card"><img class="rm-img" src="https://etc-cc.com/img/roadmap/jewelrydesign.webp" alt="Jewelry" loading="lazy"><div class="rm-body"><h4>Jewelry Design</h4><div class="rm-dur">9 months</div></div></div>
+          <div class="rm-card"><img class="rm-img" src="https://etc-cc.com/img/roadmap/solidworks.webp" alt="SolidWorks" loading="lazy"><div class="rm-body"><h4>SolidWorks</h4><div class="rm-dur">3 months</div></div></div>
+        </div>
+      </div>
+
+      <div class="rm-section rv">
+        <div class="rm-section-label">Coding &amp; Artificial Intelligence</div>
+        <div class="rm-grid">
+          <div class="rm-card"><img class="rm-img" src="https://etc-cc.com/img/roadmap/programming.webp" alt="Python" loading="lazy"><div class="rm-body"><h4>Python Programming</h4><div class="rm-dur">3 / 6 / 9 months</div></div></div>
+          <div class="rm-card"><img class="rm-img" src="https://etc-cc.com/img/roadmap/render.webp" alt="AI Render" loading="lazy"><div class="rm-body"><h4>AI Rendering</h4><div class="rm-dur">3 months</div></div></div>
+          <div class="rm-card"><img class="rm-img" src="https://etc-cc.com/img/roadmap/revitai.webp" alt="AI Revit" loading="lazy"><div class="rm-body"><h4>AI for Revit</h4><div class="rm-dur">3 months</div></div></div>
+          <div class="rm-card"><img class="rm-img" src="https://etc-cc.com/img/roadmap/autocadai.webp" alt="AI AutoCAD" loading="lazy"><div class="rm-body"><h4>AI for AutoCAD</h4><div class="rm-dur">3 months</div></div></div>
+          <div class="rm-card"><img class="rm-img" src="https://etc-cc.com/img/roadmap/businessai.webp" alt="AI Business" loading="lazy"><div class="rm-body"><h4>AI for Business</h4><div class="rm-dur">3 months</div></div></div>
+          <div class="rm-card"><img class="rm-img" src="https://etc-cc.com/img/roadmap/graphicdesignai.webp" alt="AI Design" loading="lazy"><div class="rm-body"><h4>AI for Graphic Design</h4><div class="rm-dur">3 months</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer id="footer">
+  <div class="footer-main">
+    <div class="footer-brand"><img src="../assets/logo.jpeg" alt="ETC" onerror="this.style.display='none'"><p>Lebanon's premier Autodesk &amp; Rhino Authorized Training Center. Founded 2005.</p></div>
+    <div class="footer-col"><h4>Pages</h4><a href="../index.html">Home</a><a href="about.html">About</a><a href="courses.html">Courses</a><a href="schedule.html">Schedule</a><a href="kids.html">Kids</a><a href="contact.html">Contact</a></div>
+    <div class="footer-col"><h4>Contact</h4><a href="tel:+9613331741">+961 3 331741</a><a href="mailto:info@etc-cc.com">info@etc-cc.com</a><a href="https://wa.me/9613331741">WhatsApp</a></div>
+    <div class="footer-col"><h4>Resources</h4><a href="https://etc-cc.com/etc/waitinglist" target="_blank">Waiting List</a><a href="https://etc-cc.com/etc/faq" target="_blank">FAQ</a></div>
+  </div>
+  <div class="footer-bottom"><p>© 2026 Expertise Training Center · All Rights Reserved</p></div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

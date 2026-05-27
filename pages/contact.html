@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Contact ETC — Expertise Training Center</title>
+<link rel="stylesheet" href="../css/styles.css">
+<style>
+.contact-grid { display:grid; grid-template-columns:1fr 1.1fr; gap:4rem; align-items:start; }
+.loc-cards { display:flex; flex-direction:column; gap:1rem; }
+.loc-card { background:rgba(255,255,255,0.04); border:1px solid var(--border); border-radius:var(--r); padding:1.4rem; }
+.loc-head { display:flex; align-items:center; gap:10px; margin-bottom:0.9rem; }
+.loc-flag { font-size:1.3rem; }
+.loc-name { font-weight:700; font-size:0.9rem; color:var(--white); }
+.loc-line { font-size:0.84rem; color:var(--muted); margin-bottom:0.3rem; }
+.loc-line strong { color:#6a8aaa; }
+.loc-line a { color:#6a8aaa; transition:color var(--t); }
+.loc-line a:hover { color:var(--blue3); }
+
+.contact-actions { display:flex; flex-direction:column; gap:1rem; }
+.ca-card { display:block; background:rgba(255,255,255,0.04); border:1px solid var(--border); border-radius:var(--r); padding:1.6rem; text-align:center; transition:border-color var(--t), transform var(--t); }
+.ca-card:hover { border-color:rgba(52,128,240,0.4); transform:translateY(-3px); }
+.ca-icon { font-size:1.8rem; margin-bottom:0.6rem; }
+.ca-card h4 { font-weight:700; font-size:0.92rem; color:var(--white); margin-bottom:0.3rem; }
+.ca-card p { font-size:0.82rem; color:var(--muted); }
+.wa-card { border-color:rgba(37,211,102,0.2) !important; }
+.wa-card:hover { border-color:#25d366 !important; }
+
+.social-band { background:rgba(255,255,255,0.03); border-top:1px solid var(--border); padding:2rem; text-align:center; margin-top:3rem; }
+.social-band p { font-size:0.72rem; color:#3a5470; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:1rem; }
+.socials { display:flex; justify-content:center; gap:10px; }
+
+.faq-section { background:var(--off); }
+
+@media(max-width:860px){ .contact-grid{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><img src="../assets/logo.jpeg" alt="ETC" onerror="this.style.display='none'"><span>ETC <em>Lebanon</em></span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li><li><a href="about.html">About</a></li>
+      <li><a href="courses.html">Courses</a></li><li><a href="schedule.html">Schedule</a></li>
+      <li><a href="kids.html">Kids</a></li><li><a href="certificates.html">Certificates</a></li>
+      <li><a href="contact.html" class="active nav-cta">Contact Us</a></li>
+    </ul>
+    <button class="burger" onclick="toggleMob()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob" id="mob">
+  <button class="mob-close" onclick="closeMob()">✕</button>
+  <a href="../index.html" onclick="closeMob()">Home</a><a href="about.html" onclick="closeMob()">About</a><a href="courses.html" onclick="closeMob()">Courses</a><a href="schedule.html" onclick="closeMob()">Schedule</a><a href="kids.html" onclick="closeMob()">Kids</a><a href="certificates.html" onclick="closeMob()">Certificates</a><a href="contact.html" onclick="closeMob()">Contact</a>
+</div>
+
+<div class="page-wrap">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb"><a href="../index.html">Home</a><span>Contact</span></div>
+      <h1>Get in <em>Touch</em></h1>
+      <p>Your first session is free — no commitment required. Reach us in Lebanon, Portugal, or the USA.</p>
+    </div>
+  </div>
+
+  <section style="background:var(--navy)">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div class="loc-cards rv">
+          <div class="loc-card">
+            <div class="loc-head"><span class="loc-flag">🇱🇧</span><span class="loc-name">Lebanon — Dbayeh, Beirut</span></div>
+            <div class="loc-line"><strong>Naji Sfeir (Director):</strong> <a href="tel:+9613331741">+961 3 331741</a></div>
+            <div class="loc-line"><strong>Rita:</strong> <a href="tel:+96170122717">+961 70 122717</a></div>
+            <div class="loc-line"><strong>Email:</strong> <a href="mailto:info@etc-cc.com">info@etc-cc.com</a></div>
+            <div class="loc-line"><strong>WhatsApp:</strong> <a href="https://wa.me/9613331741" target="_blank">+961 3 331741</a></div>
+          </div>
+          <div class="loc-card">
+            <div class="loc-head"><span class="loc-flag">🇵🇹</span><span class="loc-name">Portugal</span></div>
+            <div class="loc-line"><strong>Anthonio:</strong> <a href="tel:+351910791911">+351 910 791911</a></div>
+          </div>
+          <div class="loc-card">
+            <div class="loc-head"><span class="loc-flag">🇺🇸</span><span class="loc-name">United States</span></div>
+            <div class="loc-line"><strong>Cleveland (ET):</strong> <a href="tel:+14407594048">+1 440 759 4048</a></div>
+            <div class="loc-line"><strong>Atlanta (CT):</strong> <a href="tel:+14042459356">+1 404 245 9356</a></div>
+          </div>
+          <div class="loc-card">
+            <div class="loc-head"><span class="loc-flag">🌍</span><span class="loc-name">On-Site — Anywhere</span></div>
+            <div class="loc-line" style="color:#6a8aaa">ETC sends certified trainers to your company premises globally. UAE, Saudi Arabia, Congo, Europe, USA and more. Contact us for group rates.</div>
+          </div>
+        </div>
+        <div class="contact-actions rv" style="transition-delay:.1s">
+          <a href="mailto:info@etc-cc.com" class="ca-card">
+            <div class="ca-icon">✉️</div>
+            <h4>Email Us</h4>
+            <p>info@etc-cc.com<br>We reply within 24 hours</p>
+          </a>
+          <a href="https://wa.me/9613331741" target="_blank" rel="noopener" class="ca-card wa-card">
+            <div class="ca-icon">💬</div>
+            <h4>WhatsApp</h4>
+            <p>Usually replies instantly. English, Arabic, and French supported.</p>
+          </a>
+          <a href="https://etc-cc.com/etc/waitinglist" target="_blank" rel="noopener" class="ca-card">
+            <div class="ca-icon">📋</div>
+            <h4>Join the Waiting List</h4>
+            <p>Reserve your spot for any upcoming course. We'll notify you by SMS.</p>
+          </a>
+          <a href="https://etc-cc.com/etc/schedule" target="_blank" rel="noopener" class="ca-card">
+            <div class="ca-icon">📅</div>
+            <h4>View the 2026 Schedule</h4>
+            <p>57 upcoming classes across Lebanon, UAE, and Online.</p>
+          </a>
+        </div>
+      </div>
+      <div class="social-band">
+        <p>Follow ETC on Social Media</p>
+        <div class="socials">
+          <a class="soc-btn" href="https://www.youtube.com/@ETCLebanon" target="_blank" title="YouTube"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.7 12 3.7 12 3.7s-7.5 0-9.4.4a3 3 0 0 0-2.1 2.1C.1 8.1.1 12 .1 12s0 3.9.4 5.8a3 3 0 0 0 2.1 2.1c1.9.4 9.4.4 9.4.4s7.5 0 9.4-.4a3 3 0 0 0 2.1-2.1c.4-1.9.4-5.8.4-5.8s0-3.9-.4-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg></a>
+          <a class="soc-btn" href="https://www.facebook.com/etclebanonandme" target="_blank" title="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1c0 6 4.4 11 10.1 11.9v-8.4H7.1v-3.5h3V9.4c0-3 1.8-4.6 4.5-4.6 1.3 0 2.7.2 2.7.2v3H15.8c-1.5 0-2 .9-2 1.9v2.2h3.3l-.5 3.5H13.8V24C19.6 23.1 24 18.1 24 12.1z"/></svg></a>
+          <a class="soc-btn" href="https://www.linkedin.com/company/expertise-training-center/" target="_blank" title="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.5-2.1 2.9v5.7H9.4V9h3.4v1.6h.1c.5-.9 1.6-1.8 3.3-1.8 3.5 0 4.2 2.3 4.2 5.4v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM3.5 20.4H7V9H3.5v11.4zM22.2 0H1.8C.8 0 0 .8 0 1.8v20.4C0 23.2.8 24 1.8 24h20.4c1 0 1.8-.8 1.8-1.8V1.8C24 .8 23.2 0 22.2 0z"/></svg></a>
+          <a class="soc-btn" href="https://www.instagram.com/learnwith.etc/" target="_blank" title="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8c.1-3.2 1.6-4.8 4.9-4.9 1.2-.1 1.5-.1 4.8-.1zm0-2.2C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7C8.3 24 8.7 24 12 24s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4A6.2 6.2 0 0 0 12 5.8zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></a>
+          <a class="soc-btn" href="https://twitter.com/NajiETC" target="_blank" title="X"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.2 2h3.4l-7.4 8.5L23 22h-6.8l-5.3-7-6.1 7H1.4l7.9-9L1 2h7l4.8 6.4L18.2 2zm-1.2 18h1.9L7.1 4H5.1l11.9 16z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="wrap">
+      <div class="sh rv"><div class="tag-label">FAQ</div><h2 class="h2">Common <em>Questions</em></h2></div>
+      <div class="faq-grid rv">
+        <details class="faq"><summary>Is the first session really free?</summary><div class="faq-body">Yes. You can attend the first two sessions of any course at no charge and with no commitment. Evaluate the instructor, curriculum, and environment before deciding to register.</div></details>
+        <details class="faq"><summary>What languages are courses taught in?</summary><div class="faq-body">English, Arabic, and French. Most courses are offered in English, but Arabic delivery is available for many courses. The online AI chatbot also supports all three languages.</div></details>
+        <details class="faq"><summary>Do you offer payment plans?</summary><div class="faq-body">Yes. Three-installment payment options are available. Certificates are issued regardless of final payment status. International students can pay via Western Union.</div></details>
+        <details class="faq"><summary>Can I attend online instead of in-person?</summary><div class="faq-body">All Lebanon campus classes are also available live via Zoom at the same schedule and pricing. The online experience is interactive — not recorded replays.</div></details>
+        <details class="faq"><summary>What if I miss a session?</summary><div class="faq-body">Free course repetition (online or in-person) is available within one year of registration. Most courses are also recorded for enrolled students to review at their own pace.</div></details>
+        <details class="faq"><summary>Can ETC train employees at our office?</summary><div class="faq-body">Yes. ETC offers on-site corporate training anywhere in the world — Lebanon, UAE, Saudi Arabia, Africa, Europe, USA. Contact us for group rates and custom scheduling.</div></details>
+        <details class="faq"><summary>How do I get an Autodesk certificate?</summary><div class="faq-body">Complete the relevant Autodesk course track and take the official Autodesk certification exam. As an Authorized Training Center, ETC can administer and facilitate these internationally recognized exams.</div></details>
+        <details class="faq"><summary>What is the DGTVE certificate?</summary><div class="faq-body">ETC is registered with Lebanon's Directorate of Vocational and Technical Education (DGTVE), Ministry of Education. Students completing approved multi-course programs can receive government-attested certificates. Processing is pending final approval.</div></details>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer id="footer">
+  <div class="footer-main">
+    <div class="footer-brand"><img src="../assets/logo.jpeg" alt="ETC" onerror="this.style.display='none'"><p>Lebanon's premier Autodesk &amp; Rhino Authorized Training Center. Founded 2005.</p></div>
+    <div class="footer-col"><h4>Pages</h4><a href="../index.html">Home</a><a href="about.html">About</a><a href="courses.html">Courses</a><a href="schedule.html">Schedule</a><a href="kids.html">Kids</a><a href="contact.html">Contact</a></div>
+    <div class="footer-col"><h4>Contact</h4><a href="tel:+9613331741">+961 3 331741 (LB)</a><a href="tel:+351910791911">+351 910 791911 (PT)</a><a href="mailto:info@etc-cc.com">info@etc-cc.com</a><a href="https://wa.me/9613331741">WhatsApp</a></div>
+    <div class="footer-col"><h4>Resources</h4><a href="https://etc-cc.com/etc/waitinglist" target="_blank">Waiting List</a><a href="https://etc-cc.com/etc/activeexams" target="_blank">Free Exams</a><a href="https://etc-cc.com/etc/exercise" target="_blank">Exercise Files</a><a href="https://etc-cc.com/etc/faq" target="_blank">FAQ</a></div>
+  </div>
+  <div class="footer-bottom"><p>© 2026 Expertise Training Center · All Rights Reserved</p></div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
