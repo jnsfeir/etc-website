@@ -118,19 +118,31 @@
   border: 1px solid rgba(52,128,240,0.25);
   border-radius: var(--r); padding: 1rem 1.3rem;
 }
-.hc-1 { top: 20%; right: 5%; animation: float1 4s ease-in-out infinite; }
-.hc-2 { bottom: 22%; right: 8%; animation: float2 5s ease-in-out infinite; }
-.hc-3 { bottom: 40%; left: 5%; animation: float1 4.5s ease-in-out infinite; }
+.hc-1 { top: 18%; right: 5%; animation: float1 4s ease-in-out infinite; }
+.hc-2 { bottom: 20%; right: 6%; animation: float2 5s ease-in-out infinite; }
+.hc-3 { bottom: 38%; left: 5%; animation: float1 4.5s ease-in-out infinite; }
+.hc-4 { top: 8%;  left: 5%; animation: float2 4.2s ease-in-out infinite; }
+.hc-5 { top: 48%; right: 5%; animation: float1 3.8s ease-in-out infinite; }
+.hc-6 { bottom: 7%; left: 5%; animation: float2 5.2s ease-in-out infinite; }
 .hc-num { font-size: 1.4rem; font-weight: 800; color: var(--white); line-height: 1; }
 .hc-lbl { font-size: 0.7rem; color: var(--muted); margin-top: 2px; }
 .hc-row { display: flex; align-items: center; gap: 8px; }
 .hc-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; }
+.hc-dot-pulse {
+  width: 9px; height: 9px; border-radius: 50%; background: #22c55e;
+  position: relative; flex-shrink: 0;
+  box-shadow: 0 0 0 0 rgba(34,197,94,0.6);
+  animation: pulse-ring 1.8s ease-out infinite;
+}
 .hc-txt { font-size: 0.78rem; color: var(--white); font-weight: 600; }
+.hc-stars { color: #fbbf24; font-size: 0.72rem; letter-spacing: 1px; margin-bottom: 3px; }
+.hc-flags { font-size: 1.1rem; letter-spacing: 3px; margin-bottom: 3px; }
 
 @keyframes float1 { 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-10px) } }
 @keyframes float2 { 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(8px) } }
 @keyframes fadeUp { from { opacity:0; transform:translateY(22px) } to { opacity:1; transform:none } }
 @keyframes fadeIn { from { opacity:0 } to { opacity:1 } }
+@keyframes pulse-ring { 0%{ box-shadow:0 0 0 0 rgba(34,197,94,0.6) } 70%{ box-shadow:0 0 0 8px rgba(34,197,94,0) } 100%{ box-shadow:0 0 0 0 rgba(34,197,94,0) } }
 
 /* ── TRUSTED BY ── */
 #trusted { background: var(--navy2); border-bottom: 1px solid var(--border); padding: 2rem 1.5rem; }
@@ -240,9 +252,9 @@
     </div>
     <div class="hero-micro">
       <div class="hero-micro-item"><div class="hero-micro-num">20+</div><div class="hero-micro-lbl">Years Active</div></div>
+      <div class="hero-micro-item"><div class="hero-micro-num">15K+</div><div class="hero-micro-lbl">Students Trained</div></div>
       <div class="hero-micro-item"><div class="hero-micro-num">156+</div><div class="hero-micro-lbl">Courses</div></div>
       <div class="hero-micro-item"><div class="hero-micro-num">8</div><div class="hero-micro-lbl">Departments</div></div>
-      <div class="hero-micro-item"><div class="hero-micro-num">3</div><div class="hero-micro-lbl">Continents</div></div>
     </div>
   </div>
   <div class="hero-right">
@@ -260,6 +272,19 @@
     <div class="hero-card hc-3">
       <div class="hc-num" style="color:var(--gold2)">Free</div>
       <div class="hc-lbl">First Session</div>
+    </div>
+    <div class="hero-card hc-4">
+      <div class="hc-num">15,000+</div>
+      <div class="hc-lbl">Students Trained</div>
+    </div>
+    <div class="hero-card hc-5">
+      <div class="hc-row"><span class="hc-dot-pulse"></span><span class="hc-txt">Sessions Running Now</span></div>
+      <div class="hc-row" style="margin-top:6px"><span style="font-size:0.7rem;color:var(--muted)">Lebanon · Online · Global</span></div>
+    </div>
+    <div class="hero-card hc-6">
+      <div class="hc-flags">🇱🇧 🇵🇹 🇺🇸</div>
+      <div class="hc-stars">★★★★★</div>
+      <div class="hc-lbl">Across 3 Continents</div>
     </div>
   </div>
 </section>
